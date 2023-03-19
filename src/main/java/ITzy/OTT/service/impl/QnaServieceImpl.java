@@ -16,16 +16,22 @@ public class QnaServieceImpl implements QnaService {
 	QnaDao dao;
 	
 	@Override
-	public List<QnaDto> myQna() {
-		return dao.myQna();
+	public List<QnaDto> myQna(String id) {
+		return dao.myQna(id);
 	}
 
 	@Override
 	public boolean addQna(QnaDto dto) {
 		int count = dao.addQna(dto);
 		return count>0?true:false;
-		
-
+	}
+	@Override
+	public QnaDto ansQna(int seq) {
+		return dao.ansQna(seq);
+	}
+	@Override
+	public QnaDto findQna(int seq) {
+		return dao.findQna(seq);
 	}
 
 }

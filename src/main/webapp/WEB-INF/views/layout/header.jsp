@@ -150,7 +150,7 @@
                         <a href="calendar.do">일정관리</a>
                     </li>
                     <li>
-                        <a href="qna.do">Q&A</a>
+                        <a href="qnalist.do">Q&A</a>
                     </li>
                 </ul>
             </div>
