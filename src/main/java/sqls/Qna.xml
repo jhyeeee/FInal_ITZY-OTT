@@ -4,19 +4,29 @@
 
 <mapper namespace="Qna">
 
-	<select id="myQna" resultType="ITzy.OTT.dto.QnaDto">
-		select id, title, content, wdate
-		from qna
+	<select id="myQna" parameterType="java.lang.String"  resultType="ITzy.OTT.dto.QnaDto">
+		select seq, ref, id, qtype, title, content, wdate, mngid, answer, ansdate 
+		from qna where id=#{id} order by wdate desc
 	</select>
 
 
 
 	<insert id="addQna" parameterType="ITzy.OTT.dto.QnaDto">
-		insert into qna(id, title, content)
-		values(#{id}, #{title}, #{content})
+
+		insert into qna(id, qtype, title, content,wdate)
+		values(#{id},#{qtype},#{title},#{content}, now());
+
 	</insert>
 
-
+	<select id="findQna" parameterType="Integer"  resultType="ITzy.OTT.dto.QnaDto">
+		select seq, ref, id, qtype, title, content, wdate, mngid, answer, ansdate
+		from qna where seq=#{seq}
+	</select>
+	
+	<select id="ansQna" parameterType="Integer"  resultType="ITzy.OTT.dto.QnaDto">
+		select answer, ansdate 
+		from qna where ref=#{seq}
+	</select>
 
 
 </mapper>
