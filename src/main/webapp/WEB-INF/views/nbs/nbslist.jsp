@@ -42,7 +42,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <!-- <script type="text/javascript" src="./jquery/jquery.twbsPagination.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
-
+<link rel="stylesheet" href="css/common.css"/>
 <style type="text/css">
 .table th, .table td {
 	text-align: center;

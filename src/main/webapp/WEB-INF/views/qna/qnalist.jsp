@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Q&A</title>
-
+<link rel="stylesheet" href="css/common.css"/>
 <%
 MemberDto login = (MemberDto)session.getAttribute("login");
 if (login == null) {
@@ -24,6 +24,7 @@ if (login == null) {
 %>
 
 </head>
+
 <body>
 	<%
 	List<QnaDto> list = (List<QnaDto>)request.getAttribute("qnalist");
