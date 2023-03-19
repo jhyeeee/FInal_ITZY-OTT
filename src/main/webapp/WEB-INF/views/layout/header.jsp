@@ -89,37 +89,47 @@
     .login p{
 		text-align: right;    	
     	margin: 0;
-
+    }
+    .login p:nth-child(1){
+    	font-size: 20px;
+    }
+    .login p:nth-child(1) a{
+    	font-size: 18px;
     }
     .login a{
-    	padding: 10px 20px;
+    	margin-right: 10px;
 
     }
-
+	.login{
+	vertical-align: middle;
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
+	.login img{
+		width: 30px;
+	}
 </style>
 </head>
 <body>
 <header>
 	<div id="header_wrap">
-        <div class="login">
+        <div class="login_wrap">
             <div class="login">
 			  <%
 			  MemberDto login = (MemberDto)session.getAttribute("login");
-			    if(login == null){%>
-<!-- 			    
-			  <script type="text/javascript">
-			  alert("세션이 만료되었습니다");
-			  </script>
-	 -->		  
+			    if(login == null){
+			  %>
 			  <p><a href="login.do">로그인</a></p>
 			  <%
 			    }else{
 			  %>
-			  <p><%=login.getId()%>님 환영합니다! <a href="sessionOut.do">로그아웃</a></p>
+			  <p><%=login.getId()%>님 환영합니다! &nbsp&nbsp&nbsp<a href="sessionOut.do">로그아웃&nbsp&nbsp&nbsp</a></p>
+			  <a href="mypage.do"><img alt="mypage" src="./images/mypage.png"></a>
 			  <% 
 			    }
 			  %>
-	</div>
+			</div>
         </div>
         <div class="logo_nav">
             <div class="logo">
@@ -134,13 +144,13 @@
                         <a href="pdslist.do">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="">배우 프로필</a>
+                        <a href="ppslist.do">배우 프로필</a>
                     </li>
                     <li>
                         <a href="calendar.do">일정관리</a>
                     </li>
                     <li>
-                        <a href="qnalist.do">Q&A</a>
+                        <a href="qna.do">Q&A</a>
                     </li>
                 </ul>
             </div>

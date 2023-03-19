@@ -11,10 +11,13 @@
 		text-decoration: none;
 	}
 	h1{
+		height: 130px;
 		margin: 0;
 		padding: 0;
 	}
 	footer{
+		position:absolute;
+		bottom: 0;
 		width: 100%;
 		height: 130px;
 		background: #eee;
