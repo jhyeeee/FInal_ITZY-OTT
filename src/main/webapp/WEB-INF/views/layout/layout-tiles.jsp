@@ -9,10 +9,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+
+	.wrap{
+		position: relative;
+		min-height: 100%;
+		padding-bottom: 130px;
+	}
+	main{
+		margin-bottom: 80px;
+	}
+</style>
 <body>
 
 
-<div align="center">
+<div class="wrap" align="center">
 
 
 
@@ -38,9 +49,3 @@
 
 </body>
 </html>
-
-
-
-
-
-

@@ -51,7 +51,6 @@ public class NdownloadView extends AbstractView{
 		// 실제 데이터 기입
 		FileCopyUtils.copy(fis, os);
 		// download count증가
-		service.downcount(seq);
 		
 		
 		if (fis != null) {

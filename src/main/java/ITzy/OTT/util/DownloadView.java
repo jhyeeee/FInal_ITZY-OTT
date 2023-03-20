@@ -10,16 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
+import ITzy.OTT.service.NbsService;
 import ITzy.OTT.service.PdsSerivce;
+import ITzy.OTT.service.impl.NbsServiceImpl;
 
 public class DownloadView extends AbstractView{
-	
 	@Autowired
-	PdsSerivce service;
-
+	NbsService service;
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -52,7 +53,6 @@ public class DownloadView extends AbstractView{
 		FileCopyUtils.copy(fis, os);
 		// download count증가
 		service.downcount(seq);
-		
 		
 		if (fis != null) {
 			fis.close();

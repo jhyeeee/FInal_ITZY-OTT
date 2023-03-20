@@ -32,7 +32,6 @@
 <title>nbsList</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	
 <link rel="stylesheet" href="./css/common.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
@@ -62,7 +61,7 @@ flex: 1;
 
 <h1>공고게시판</h1>
 <hr>
-<div class="content">
+
 <div align="center">
 	<table class="table table-hover table-sm" style="width: 1000px">
 	<col width="70"><col width="80"><col width="300"><col width="70">
@@ -90,12 +89,11 @@ flex: 1;
 		NbsDto nbs = list.get(i);
 	%>		
 		
-												
+		<tr>												
 <%
-			if(nbs.getDel() == 0 ){		// 삭제 확인%>
-			
-			<tr>
-				<th><%=i + 1 + (npageNumber * 10) %></th>			
+			if(nbs.getDel() == 0 ){		// 삭제 확인
+%>					
+				<th><%=i + 1 + (npageNumber * 10) %></th>
 				<td><%=nbs.getId() %></td>	
 				<td style="text-align: center;">				
 					<%=Utility.arrow(nbs.getDepth()) %>
@@ -167,13 +165,13 @@ flex: 1;
 </div>
 
 <!-- 파일다운 (controller -> downloadview) -->
-<form name="file_down" action="filedownload.do" method="post">
+<form name="file_down" action="nfiledownload.do" method="post">
 	<input type="hidden" name="newfilename">
 	<input type="hidden" name="filename">
 	<input type="hidden" name="seq">
 </form>
 
-</div>
+
 <script type="text/javascript">
 
 	let nsearch = "<%=nsearch %>";

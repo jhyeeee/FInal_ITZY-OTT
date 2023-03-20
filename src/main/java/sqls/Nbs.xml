@@ -6,9 +6,9 @@
 	
 <mapper namespace="Nbs">
 	<select id="nbslist" resultType="ITzy.OTT.dto.NbsDto">
-		select seq, id, ref, step, depth, title, content, del, filename, newfilename, readcount, downcount, regdate
+		select seq, id, ref, step, depth, title, content, del, filename, newfilename, readcount, downcount, regdate, love
 		from (select row_number()over(order by ref desc, step asc) as rnum,
-				seq, id, ref, step, depth, title, content, del, filename, newfilename, readcount, downcount, regdate
+				seq, id, ref, step, depth, title, content, del, filename, newfilename, readcount, downcount, regdate, love
 				from nbs
 				<if test="nchoice != null and nchoice != '' and nsearch != null and nsearch != '' ">
 					<if test="nchoice == 'title'">
@@ -29,9 +29,9 @@
 	
 	<insert id="uploadNbs" parameterType="ITzy.OTT.dto.NbsDto">
 		insert into nbs(id, title, content, filename, newfilename,
-			readcount, downcount, regdate, del, ref, step, depth)
+			readcount, downcount, regdate, del, ref, step, depth, love)
 		values (#{id}, #{title}, #{content}, #{filename}, #{newfilename}, 0, 0, now(), 0,
-			(select ifnull(max(ref), 0) +1 from nbs b), 0, 0)
+			(select ifnull(max(ref), 0) +1 from nbs b), 0, 0, 0)
 	</insert>
 	
 	<update id="downcount" parameterType="Integer">
@@ -42,7 +42,7 @@
 	
 	<select id="getNbs" parameterType="Integer" resultType="ITzy.OTT.dto.NbsDto">
 	select seq, id, title, content, filename, newfilename, 
-		readcount, downcount, regdate, del, ref, step, depth
+		readcount, downcount, regdate, del, ref, step, depth, love
 	from nbs
 	where seq=#{seq}
 	</select>
@@ -68,7 +68,7 @@
 	
 	
 	
-	<update id="readcountNbs" parameterType="Integer">
+	<update id="readcount" parameterType="Integer">
 		update nbs
 		set readcount = readcount + 1
 		where seq = #{seq}
@@ -96,17 +96,15 @@
 		where ref=(select ref from (select ref from nbs a where seq=#{seq}) A)
 			and step>(select step from (select step from nbs b where seq=#{seq}) B)
 	</update>	
-	<!-- 추가 -->
 	
 	
-	
-	
+	<!-- 추가 -->	
 	<insert id="answerNbsInsert" parameterType="ITzy.OTT.dto.NbsDto">
-		insert into nbs(id, title, content, filename, newfilename, readcount, downcount, regdate, del, ref, step, depth)
+		insert into nbs(id, title, content, filename, newfilename, readcount, downcount, regdate, del, ref, step, depth, love)
 		values(#{id}, #{title}, #{content}, #{filename}, #{newfilename}, 0, 0, now(), 0, 
 					  (select ref from nbs a where seq=#{seq}),
 					  (select step from nbs b where seq=#{seq})+1,
-					  (select depth from nbs c where seq=#{seq})+1)
+					  (select depth from nbs c where seq=#{seq})+1, 0)
 				
 	</insert>
 	

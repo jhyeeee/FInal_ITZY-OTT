@@ -82,7 +82,8 @@
 	</tr>
 	
 	<tr>
-		<td colspan="2" style="background-color: white;">
+		<td colspan="2" style="background-color: white; text-align: center;">
+			<img src="upload/<%=nbs.getNewfilename()%>" style="width:80%;">
 			<pre style="font-size: 20px; font-family: 고딕, arial; background-color: white;"><%=nbs.getContent() %></pre>
 		</td>
 	</tr>
@@ -103,7 +104,7 @@
 	%>
 
 </div>
-	<form name="file_down" action="filedownload.do" method="post">
+	<form name="file_down" action="nfiledownload.do" method="post">
 		<input type="hidden" name="newfilename">
 		<input type="hidden" name="filename">
 		<input type="hidden" name="seq">

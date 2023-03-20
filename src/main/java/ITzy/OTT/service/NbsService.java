@@ -10,7 +10,8 @@ public interface NbsService {
 	public List<NbsDto> nbslist(NbsParam nbs);
 	int getAllNbs(NbsParam nbs);
 	boolean uploadNbs(NbsDto dto);
-	void downcount(int seq);	
+	void readcount(int seq);	
+	void downcount(int seq);
 	NbsDto getNbs(int seq);
 	boolean updateNbs(NbsDto dto);
 	NbsDto deleteNbs(int seq);

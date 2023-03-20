@@ -187,6 +187,27 @@ if(answer != null && !answer.equals("")){
 	}	
 }
 
+String nbswrite = (String)request.getAttribute("nbswrite");
+if(nbswrite != null && !nbswrite.equals("")){
+	if(nbswrite.equals("NBS_ADD_OK")){
+		%>
+		<script type="text/javascript">
+		alert("성공적으로 작성되었습니다");
+		location.href = "nbslist.do";
+		</script>
+		<%
+	}
+	else{
+		%>
+		<script type="text/javascript">
+		alert("다시 작성해 주십시오");
+		location.href = "nbswrite.do";
+		</script>
+		<%
+	}
+}
+
+
 String nanswer = (String)request.getAttribute("nanswer");
 if(nanswer != null && !nanswer.equals("")){
 	if(nanswer.equals("NBS_ANSWER_OK")){

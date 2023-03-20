@@ -2,7 +2,7 @@ package ITzy.OTT.util;
 
 import java.util.Date;
 
-public class NdsUtil {
+public class NbsUtil {
 
 	// 파일명 -> 변환 as system time
 	
