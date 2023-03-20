@@ -28,15 +28,15 @@
 	background: #eee;
 }
 
-.h-custom {
+/* .h-custom {
 	height: calc(100% - 73px);
 }
-
-@media ( max-width : 450px) {
+ */
+/* @media ( max-width : 450px) {
 	.h-custom {
 		height: 100%;
 	}
-}
+} */
 
 html, body {
 	width: 100%;
@@ -49,20 +49,17 @@ body, div, ul, li {
 }
 
 }
-ul, li {
-	list-style: none;
-}
 
 /*tab css*/
 .tab {
 	float: left;
 	width: 600px;
-	height: 290px;
+	height: 250px;
 }
 
 .tabnav {
 	font-size: 0;
-	width: 600px;
+	width: 400px;
 	border: 1px solid #ddd;
 }
 
@@ -85,7 +82,7 @@ ul, li {
 }
 
 .tabnav li a.active:before {
-	background: blue;
+	background: orange;
 }
 
 .tabnav li a.active {
@@ -110,9 +107,10 @@ ul, li {
 
 .tabcontent {
 	padding: 20px;
-	height: 450px;
+
 	border: 1px solid #ddd;
 	border-top: none;
+	margin: 0 auto;
 }
 </style>
 
@@ -124,50 +122,51 @@ ul, li {
 		<div class="container-fluid h-custom">
 			<div class="row d-flex justify-content-center align-items-center h-100">
 			
-				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+				<div>
 
-					<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-						<p class="lead fw-normal mb-0 me-3">Login page</p>
+
+					<div>
+						<img alt="img" src="./images/logo.png?v=1" width="150px"
+							height="150px">
 					</div>
 
-					<div class="divider d-flex align-items-center my-4">
-						<p class="text-center fw-bold mx-3 mb-0">Or</p>
+					<div>
+						<p style="margin: auto; font-size: larger">
+							<b>OTT PAGE LOGIN</b>
+						</p>
 					</div>
-
 					<div class="tab">
+					
+					
+					
 						<ul class="tabnav">
 							<li><a href="#tab01">일반회원</a></li>
 							<li><a href="#tab02">기업회원</a></li>
 						</ul>
+						
+						
+						
+						
+						
 						<div class="tabcontent">
 							<div id="tab01">
 								<form action="loginAf.do" method="post">
 									<!-- id input -->
 									<div class="form-outline mb-4">
-										<input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="Enter a valid id" /> <label class="form-label" for="form3Example3">Id</label>
+										<input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="ID" />
 									</div>
 
 									<!-- Password input -->
 									<div class="form-outline mb-3">
-										<input type="password" id="pwd" name="pwd" class="form-control form-control-lg" placeholder="Enter password" /> <label class="form-label" for="form3Example4">Password</label>
+										<input type="password" id="pwd" name="pwd" class="form-control form-control-lg" placeholder="PASSWORD" />
 									</div>
 
-									<div class="d-flex justify-content-between align-items-center">
-										<!-- Checkbox -->
-										<div class="form-check mb-0">
-											<input class="form-check-input me-2" type="checkbox" value="" id="chk_save_id" /> <label class="form-check-label" for="form2Example3"> Remember me </label>
-										</div>
-										<a href="#!" class="text-body">Forgot password?</a>
-									</div>
 									<div class="text-center text-lg-start mt-4 pt-2">
-										<button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-										<p class="small fw-bold mt-2 pt-1 mb-0">
-											Don't have an account? <a href="#" onclick="account()" class="link-danger">Register</a>
-										</p>
+										<button type="submit" class="btn btn-warning btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+										<a href="#" onclick="account()" class="link-danger">회원가입하기</a>
+										
 								</form>
 							</div>
-
-
 						</div>
 
 
@@ -176,29 +175,24 @@ ul, li {
 							<form action="BizloginAf.do" method="post">
 								<!-- id input -->
 								<div class="form-outline mb-4">
-									<input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="Enter a valid id" /> <label class="form-label" for="form3Example3">Id</label>
+									<input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="ID" />
 								</div>
 
 								<!-- Password input -->
 								<div class="form-outline mb-3">
-									<input type="password" id="pwd" name="pwd" class="form-control form-control-lg" placeholder="Enter password" /> <label class="form-label" for="form3Example4">Password</label>
+									<input type="password" id="pwd" name="pwd" class="form-control form-control-lg" placeholder="PASSWORD" />
 								</div>
 
-								<div class="d-flex justify-content-between align-items-center">
-									<!-- Checkbox -->
-									<div class="form-check mb-0">
-										<input class="form-check-input me-2" type="checkbox" value="" id="chk_save_id" /> <label class="form-check-label" for="form2Example3"> Remember me </label>
-									</div>
-									<a href="#!" class="text-body">Forgot password?</a>
-								</div>
+
 								<div class="text-center text-lg-start mt-4 pt-2">
-									<button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-									<p class="small fw-bold mt-2 pt-1 mb-0">
-										Don't have an account? <a href="#" onclick="account()" class="link-danger">Register</a>
-									</p>
+									<button type="submit" class="btn btn-warning btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+									<a href="#" onclick="account()" class="link-danger">회원가입하기</a>
 								</div>
 							</form>
 						</div>
+						
+						
+						
 					</div>
 				</div>
 
@@ -208,19 +202,6 @@ ul, li {
 		</div>
 		</div>
 
-		<!-- 		<div  class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-			Copyright
-			<div class="text-white mb-3 mb-md-0">Copyright ©️ 2021. MultiCampus.</div>
-
-			Right
-			<div>
-				<a href="#!" class="text-white me-4"> <i class="fab fa-facebook-f"></i>
-				</a> <a href="#!" class="text-white me-4"> <i class="fab fa-twitter"></i>
-				</a> <a href="#!" class="text-white me-4"> <i class="fab fa-google"></i>
-				</a> <a href="#!" class="text-white"> <i class="fab fa-linkedin-in"></i>
-				</a>
-			</div>
-		</div> -->
 	</section>
 
 
