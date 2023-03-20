@@ -190,9 +190,7 @@ body, div, ul, li {
 								</div>
 							</form>
 						</div>
-						
-						
-						
+																	
 					</div>
 				</div>
 
