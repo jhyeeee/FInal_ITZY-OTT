@@ -30,10 +30,6 @@ if (login == null) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 <style type="text/css">
-main{
-		width:1200px;
-		margin: 0 auto;
-	}
 th{
 	background-color: #007bff;
 	color: white;
