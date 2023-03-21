@@ -63,7 +63,7 @@ ul, li {
 }
 
 .tabnav li a.active:before {
-	background: blue;
+	background: orange;
 }
 
 .tabnav li a.active {
@@ -113,9 +113,17 @@ $(function() {
 
 	<article class="card-body mx-auto" style="max-width: 600px;">
 
-		<h4 class="card-title mt-3 text-center">회원가입</h4>
 
+		<div>
+			<img alt="img" src="./images/logo.png?v=1" width="150px"
+				height="150px">
+		</div>
 
+		<div>
+			<p style="margin: auto; font-size: larger">
+				<b>OTT PAGE LOGIN</b>
+			</p>
+		</div>
 		<div class="tab" align="center">
 			<ul class="tabnav">
 				<li><a href="#tab01">일반회원</a></li>
@@ -129,8 +137,10 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-user"></i>
 								</span>
 							</div>
-							<input id ="id" name="id" class="form-control" placeholder="아이디" type="text">
-							<button type="button" id="idChkBtn" class="btn btn-danger">id check</button>
+							<input id="id" name="id" class="form-control" placeholder="아이디"
+								type="text">
+							<button type="button" id="idChkBtn" class="btn btn-info">id
+								check</button>
 						</div>
 						<!-- form-group// -->
 
@@ -140,14 +150,16 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-user"></i>
 								</span>
 							</div>
-							<input id="name" name="name" class="form-control" placeholder="이름" type="text">
+							<input id="name" name="name" class="form-control"
+								placeholder="이름" type="text">
 						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-envelope"></i>
 								</span>
 							</div>
-							<input id="email" name="email" class="form-control" placeholder="이메일" type="email">
+							<input id="email" name="email" class="form-control"
+								placeholder="이메일" type="email">
 						</div>
 
 						<div class="form-group input-group">
@@ -155,7 +167,8 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-lock"></i>
 								</span>
 							</div>
-							<input id="pw1" name="pwd" class="form-control" placeholder="비밀번호" type="password">
+							<input id="pw1" name="pwd" class="form-control"
+								placeholder="비밀번호" type="password">
 						</div>
 						<!-- form-group// -->
 
@@ -164,7 +177,8 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-lock"></i>
 								</span>
 							</div>
-							<input id="pw2" class="form-control" placeholder="비밀번호 확인" type="password">
+							<input id="pw2" class="form-control" placeholder="비밀번호 확인"
+								type="password">
 
 						</div>
 						<p id="pw_ck" style="margin-left: 10px;"></p>
@@ -172,10 +186,12 @@ $(function() {
 
 						<div class="form-group"></div>
 						<!--tab-->
-						<input type="button" id ="regi1Btn1" class="btn btn-primary btn-block" value="Create Account">
+						<input type="button" id="regi1Btn1"
+							class="btn btn-warning btn-block" value="회원가입완료">
+							<br>
 						<div>
 							<p class="text-center">
-								Have an account? <a href="login.do">Log In</a>
+								 <a href="login.do">로그인</a>
 							</p>
 						</div>
 
@@ -187,16 +203,17 @@ $(function() {
 				<!--  -->
 
 
-
 				<div id="tab02">
-					<form action="regiAfBiz.do" method="post"  id="regiForm2">
+					<form action="regiAfBiz.do" method="post" id="regiForm2">
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i>
 								</span>
 							</div>
-							<input id=companyId name="id" class="form-control" placeholder="로그인시 사용할 아이디" type="text">
-							<button type="button" id="BizidChkBtn" class="btn btn-danger">id check</button>
+							<input id=companyId name="id" class="form-control"
+								placeholder="로그인시 사용할 아이디" type="text">
+							<button type="button" id="BizidChkBtn" class="btn btn-info">id
+								check</button>
 						</div>
 						<p id="Bizidcheck" style="margin-left: 10px;"></p>
 
@@ -206,7 +223,8 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-user"></i>
 								</span>
 							</div>
-							<input id=company name="company" class="form-control" placeholder="회사 이름" type="text">
+							<input id=company name="company" class="form-control"
+								placeholder="회사 이름" type="text">
 						</div>
 						<!-- form-group// -->
 
@@ -217,7 +235,8 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-envelope"></i>
 								</span>
 							</div>
-							<input id="Bizemail" name="email" class="form-control" placeholder="이메일주소" type="email">
+							<input id="Bizemail" name="email" class="form-control"
+								placeholder="이메일주소" type="email">
 						</div>
 						<!-- form-group// -->
 
@@ -226,7 +245,10 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-phone"></i>
 								</span>
 							</div>
-							<input type="text" id="contact" name="contact" class="form-control" maxlength="13" placeholder=" '-' 없이 숫자만 입력해주세요" onkeyup="chk_tel(this.value,'contact')">
+							<input type="text" id="contact" name="contact"
+								class="form-control" maxlength="13"
+								placeholder=" '-' 없이 숫자만 입력해주세요"
+								onkeyup="chk_tel(this.value,'contact')">
 						</div>
 						<!-- form-group end.// -->
 						<div class="form-group input-group">
@@ -234,7 +256,8 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-lock"></i>
 								</span>
 							</div>
-							<input id="biz_pw1" name="pwd" class="form-control" placeholder="비밀번호" type="password">
+							<input id="biz_pw1" name="pwd" class="form-control"
+								placeholder="비밀번호" type="password">
 						</div>
 						<!-- form-group// -->
 
@@ -243,17 +266,20 @@ $(function() {
 								<span class="input-group-text"> <i class="fa fa-lock"></i>
 								</span>
 							</div>
-							<input id="biz_pw2" class="form-control" placeholder="비밀번호 확인" type="password">
+							<input id="biz_pw2" class="form-control" placeholder="비밀번호 확인"
+								type="password">
 						</div>
 						<p id="biz_pw_ck" style="margin-left: 10px;"></p>
 						<!-- form-group// -->
 
 						<div class="form-group"></div>
 						<!--tab-->
-						<button type="button" id="regi1Btn2"class="btn btn-primary btn-block">Create Account</button>
+						<button type="button" id="regi1Btn2"
+							class="btn btn-warning btn-block">회원가입완료</button>
 						<div>
+						<br>
 							<p class="text-center">
-								Have an account? <a href="login.do">Log In</a>
+								 <a href="login.do">로그인</a>
 							</p>
 						</div>
 					</form>
