@@ -21,8 +21,10 @@ main{
 .table th, .table td {
 	vertical-align: middle!important;
 }
-.wrap{
-	position: relative;
+.container {
+	width: 100%;
+	height: 500px;
+	overflow-y:auto; 
 }
 
 </style>
@@ -49,9 +51,8 @@ if (login == null) {
 	List<QnaDto> list = (List<QnaDto>)request.getAttribute("qnalist");
 	%>
 
-	<div class="warp" style="height: 100vh;">
+	<div class=container>
 	<button class="btn btn-warning btn-sm" onclick=" wQna()"  style="float: right; margin-right: 0">건의하기</button>
-	<p style="margin-left: 5%;">최신 15개의 건의글만 보여집니다</p>
 	
 		<div align="center">
 			<table   class="table table-hover">
@@ -73,7 +74,7 @@ if (login == null) {
 				</tr>
 				<%
 				} else {
-				for (int i = 0; i < 15; i++) {
+				for (int i = 0; i < list.size(); i++) {
 					QnaDto dto = list.get(i);
 				%>
 				<tr>
