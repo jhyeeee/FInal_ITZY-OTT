@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>calendar</title>
 
 <style type="text/css">
 	main{	
@@ -20,20 +20,93 @@
 		margin: 0 auto;
 		margin-bottom: 80px;
 	}
-table, th, td{	
-	border-collapse : collapse;
-	border: rgb(128, 128, 128) solid 1px;	
-}
-th{
-	background-color: rgb(0, 0, 192);
-	color: white;
-}
-td{
-	padding: 10px;
-}
-.content{
-	font-size: 24px;
-}
+	.cal_wrap{
+		width: 700px;
+		margin: 50px auto;
+		padding:30px;
+		border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	}
+	h2{
+		text-align: center;
+		font-size: 30px;
+		
+	}
+	table{
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0 10px;
+	}
+	table, th, td{
+		
+		
+	}
+
+	th{
+		font-size: 20px;
+		padding: 10px 0;
+	}
+	td{
+		border-bottom: 1px solid #333;
+	}
+	.content{
+		font-size: 18px;
+		padding: 10px;
+		background: #eee;
+		height:100px;
+		border-radius: 20px;
+	}
+
+	tr:last-child td{
+		border: none;
+		
+	}
+	tr{
+		margin: 10px 0;
+	}
+	input#title{
+		width:580px;
+	}
+	input{	
+		border:none;
+		font-size: 16px;
+	}
+	input:focus{
+		outline: none;
+		
+	}
+	textarea{
+		margin-top:10px;
+		padding:10px;
+		width: 580px;
+		height:200px;
+		font-size: 16px;
+	}
+	.btn{
+		width: 250px;
+		margin:0  auto;
+		align-items: center;
+	}
+	button{
+		text-align:center;
+		background: #28a0ff;
+		border: 0;
+		border-radius: 5px;
+		color: #fff;
+		margin: 0 10px;
+		margin-top: 20px;
+		padding:7px 13px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	button:nth-child(2){
+		background: #ff5a5a;
+	}
+	button:nth-child(3){
+		background: #777;
+	}
+	
+
 </style>
 </head>
 <%
@@ -53,17 +126,17 @@ CalDto dto = (CalDto)request.getAttribute("caldetail");
 %>   
 <body>
 
-
+<div class="cal_wrap">
 <h2>일정보기</h2>
-<hr>
-<br>
 
-<div align="center">
+
+
+
 
 <table>
-<col width="200"><col width="500">
+
 <tr>
-	<th>아이디</th>
+	<th>작성자</th>
 	<td><%=dto.getId() %></td>
 </tr>
 <tr>
@@ -74,14 +147,19 @@ CalDto dto = (CalDto)request.getAttribute("caldetail");
 	<th>일정</th>
 	<td><%=CalUtil.toDates(dto.getRdate()) %></td>
 </tr>
-<tr height="300">	
+  <tr></tr>
+<tr >	
+	<th>내용</th>
 	<td colspan="2" valign="top" class="content"><%=dto.getContent() %></td>
 </tr>
 </table>
 <br>
+<div class="btn">
 <button type="button" onclick="calUpdate(<%=dto.getSeq() %>)">수정</button>
 
 <button type="button" onclick="calDelete(<%=dto.getSeq() %>)">삭제</button>
+<button type="button" onclick="calendar()">목록</button>
+</div>
 </div>
 
 <script type="text/javascript">
@@ -103,7 +181,10 @@ function calDelete(seq) {
 
 	 }
 
-	}
+}
+function calendar() {
+	location.href = "calendar.do";
+}
 
 </script>
 

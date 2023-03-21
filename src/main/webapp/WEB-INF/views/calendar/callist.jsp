@@ -38,17 +38,52 @@ List<CalDto> list = (List<CalDto>)request.getAttribute("list");
 		margin: 0 auto;
 		margin-bottom: 80px;
 	}
-td{
-	text-align: center;
-}
-a{
-	text-decoration: none;
-}
-button{
-	display: block;
-	margin: 50px auto;
-	align-items: center;
-}
+	h2{
+		font-size: 26px;
+		margin: 30px 0;
+		text-align:center;
+	}
+	.cal_wrap{
+		width: 800px;
+		margin: 30px auto;
+		padding: 30px;
+		border-radius: 20px;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	}
+	table{
+		margin: 50px auto;
+		border-collapse: collapse;
+		border-spacing: 0 10px;
+		
+	}
+	th{
+		padding:10px 0;
+	}
+	td{
+		cursor:pointer;
+		padding:10px 0;
+		text-align: center;
+	}
+	td a:hover{
+		color:#28a0ff;
+	}
+	a{
+		text-decoration: none;
+	}
+	button{
+		display: block;
+		margin: 50px auto;
+		align-items: center;
+		text-align:center;
+		background: #777;
+		border: 0;
+		border-radius: 5px;
+		color: #fff;
+
+		padding:7px 13px;
+		font-size: 16px;
+		cursor: pointer;
+	}
 </style>
 <body>
 
@@ -63,8 +98,8 @@ String day = request.getParameter("day");
 <hr>
 <br>
 
-<div align="center">
 
+<div class="cal_wrap">
 <table border="1">
 <col width="450"><col width="300">
 
@@ -87,10 +122,12 @@ String day = request.getParameter("day");
 	}
 %>
 
-</table> 
+</table>
+<button type="button" onclick="location.href='calendar.do'">목록</button> 
+
 </div>
 
-<button type="button" onclick="location.href='calendar.do'">일정관리</button>
+
 
 <%!
 

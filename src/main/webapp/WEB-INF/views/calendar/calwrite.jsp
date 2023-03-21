@@ -74,7 +74,7 @@
 		font-size: 16px;
 	}
 	button{
-		background: #77a9f5;
+		background: #28a0ff;
 		border: 0;
 		border-radius: 5px;
 		color: #fff;
