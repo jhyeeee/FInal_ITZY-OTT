@@ -7,9 +7,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <link rel="stylesheet" href="css/common.css"/>
+<title>OTT</title>
+</head>
+
 <style>
 
 	.wrap{
