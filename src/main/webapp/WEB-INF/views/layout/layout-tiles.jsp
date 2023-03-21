@@ -15,8 +15,8 @@
 
 	.wrap{
 		position: relative;
-		min-height: 100%;
-		padding-bottom: 130px;
+		min-height: 90%;
+
 	}
 	main{
 		width: 1200px;
@@ -40,7 +40,7 @@
 <main>
 	<tiles:insertAttribute name="body" />
 </main>
-
+</div>
 <!-- footer -->
 <footer>
 	<tiles:insertAttribute name="footer" />
@@ -49,7 +49,7 @@
 
 
 
-</div>
+
 
 </body>
 </html>
