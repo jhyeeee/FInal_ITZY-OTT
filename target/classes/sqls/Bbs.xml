@@ -46,12 +46,18 @@
 	 </if>
 </select>
 
-<insert id="writeBbs" parameterType="ITzy.OTT.dto.BbsDto">
+<insert id="writeBbsAf" parameterType="ITzy.OTT.dto.BbsDto">
 	insert into bbs(id, ref, step, depth, title, content, regdate, del, 
-								readcount, downcount, filename, newfilename<!-- , img -->)
+								readcount, downcount, filename, newfilename)
 	values(#{id}, (select ifnull(max(ref), 0)+1 from bbs b), 0, 0, 
-			#{title}, #{content}, now(), 0, 0, 0, #{filename}, #{newfilename}<!-- ,
-			#{bytes, jdbcType=BLOB, javaType=[B} -->)	
+			#{title}, #{content}, now(), 0, 0, 0, #{filename}, #{newfilename})	
+</insert>
+
+<insert id="uploadBbs" parameterType="ITzy.OTT.dto.BbsDto">
+	insert into bbs(id, title, content, filename, newfilename,
+		readcount, downcount, regdate, del, ref, step, depth, love)
+	values (#{id}, #{title}, #{content}, #{filename}, #{newfilename}, 0, 0, now(), 0,
+		(select ifnull(max(ref), 0) +1 from bbs b), 0, 0, 0)
 </insert>
 
 <select id="getBbs" parameterType="Integer" resultType="ITzy.OTT.dto.BbsDto">
@@ -62,7 +68,7 @@
 
 <update id="updateBbs" parameterType="ITzy.OTT.dto.BbsDto">
 	update bbs
-	set title=#{title}, content=#{content}, regdate=now()
+	set title=#{title}, content=#{content}, filename=#{filename}, newfilename=#{newfilename}, regdate=now()
 	where seq=#{seq}
 </update>
 
@@ -105,7 +111,11 @@
 	order by regdate desc
 </select>
 
-
+	<update id="readcount" parameterType="Integer">
+		update bbs
+		set readcount = readcount + 1
+		where seq = #{seq}
+	</update>
 
 </mapper>
 

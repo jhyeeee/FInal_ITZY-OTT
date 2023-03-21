@@ -23,6 +23,7 @@ public class BbsDto implements Serializable{
 	
 	private int del;
 	private int readcount;	// 조회수
+	private int downcount;	
 	
 	private Blob img;
 	
@@ -37,7 +38,7 @@ public class BbsDto implements Serializable{
 	}
 
 	public BbsDto(int seq, String id, int ref, int step, int depth, String title, String content, String filename,
-			String newfilename, String regdate, int del, int readcount, Blob img) {
+			String newfilename, String regdate, int del, int readcount, int downcount, Blob img) {
 		super();
 		this.seq = seq;
 		this.id = id;
@@ -52,6 +53,7 @@ public class BbsDto implements Serializable{
 		this.del = del;
 		this.img = img;
 		this.readcount = readcount;
+		this.downcount = downcount;		
 	}
 
 	public int getSeq() {
@@ -151,6 +153,14 @@ public class BbsDto implements Serializable{
 		this.readcount = readcount;
 	}
 
+	public int getDowncount() {
+		return downcount;
+	}
+
+	public void setDowncount(int downcount) {
+		this.downcount = downcount;
+	}	
+
 	public Blob getImg() {
 		return img;
 	}
@@ -171,7 +181,7 @@ public class BbsDto implements Serializable{
 	public String toString() {
 		return "BbsDto [seq=" + seq + ", id=" + id + ", ref=" + ref + ", step=" + step + ", depth=" + depth + ", title="
 				+ title + ", content=" + content + ", filename=" + filename + ", newfilename=" + newfilename+ ", regdate="
-				+ regdate + ", del=" + del + ", readcount=" + readcount + ", img=" + img
+				+ regdate + ", del=" + del + ", readcount=" + readcount + ", downcount=" + downcount + ", img=" + img
 				+ "]";
 	}
 

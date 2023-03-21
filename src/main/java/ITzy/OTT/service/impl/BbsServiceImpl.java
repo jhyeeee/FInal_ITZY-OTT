@@ -80,20 +80,23 @@ public class BbsServiceImpl implements BbsService {
 	}
 
 	@Override
-	public String saveFile(MultipartFile file) {
-		SimpleDateFormat simpl = new SimpleDateFormat("yyyyMMddHHmmss-");
-		Calendar calendar = Calendar.getInstance();
-		String sysFileName = 
-			simpl.format(calendar.getTime()) + file.getOriginalFilename();
-		File saveFile = new File(IMAGE_REPO+"/"+sysFileName);
-		try {
-			file.transferTo(saveFile);//해당 위치에 파일 저장
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return sysFileName;
-	}	
+	public void readcount(int seq) {
+		dao.readcount(seq);	
 		
+	}
+
+	@Override
+	public boolean writeBbsAf(BbsDto dto) {
+		int count = dao.writeBbsAf(dto);
+		return count>0?true:false;
+	}
+
+	@Override
+	public boolean uploadBbs(BbsDto dto) {
+		int count = dao.uploadBbs(dto);
+		return count>0?true:false;
+	}
+
 	
 }
 
