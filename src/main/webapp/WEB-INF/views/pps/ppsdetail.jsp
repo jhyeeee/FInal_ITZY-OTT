@@ -10,8 +10,12 @@
 <title>Insert title here</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!--
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+ -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -22,6 +26,23 @@
 		margin: 0 auto;
 		margin-bottom: 80px;
 	}
+<<<<<<< HEAD
+  	  th{
+          background-color: #007bff;
+          text-align: center;
+        vertical-align: middle!important;
+      }
+      .table-info {
+              --bs-table-bg: #dee2e6;
+              --bs-table-border-color: #000;
+      }
+      pre{
+          white-space: pre-wrap;
+          word-break: break-all;
+          overflow: auto;
+          text-align: left;
+      }
+=======
   	th{
   		background-color: #007bff;
   		color: white;  		
@@ -36,6 +57,7 @@
   		width:50%;
   		margin:20px 0;
   	}	
+>>>>>>> e27c74386f7df04fd1e3def8137d80a65ad92176
   </style>
 </head>
 <body>
@@ -59,14 +81,15 @@
 
 <div id="app" class="container">
 
-	<table class="table table-striped">
+	<table class="table table-hover">
 	<colgroup>
 		<col style="width: 150px"/>
 		<col style="width: 500px"/>
 	</colgroup>
 	
+	<tr class="table-secondary">
 	<tr>
-		<td colspan="2" style="font-size: 22px; font-weight: bold;"><%=pps.getTitle() %></td>
+		<td colspan="2" style="font-size: 22px; font-weight: bold; text-align: center;"><%=pps.getTitle() %></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
@@ -100,14 +123,14 @@
 	
 	<br>
 	<!-- 답글 보류 -->
-	<button type="button" class="btn btn-primary" onclick="location.href='ppslist.do'">목록</button>
+	<button type="button" class="btn btn-secondary" onclick="location.href='ppslist.do'">목록</button>
 
 
 <%
 		if(pps.getId().equals(login.getId())){
 %>	
-	<button type="button" class="btn btn-primary" onclick="updatePps(<%=pps.getSeq() %>)">수정</button>	
-	<button type="button" class="btn btn-primary" onclick="deletePps(<%=pps.getSeq() %>)">삭제</button>
+	<button type="button" class="btn btn-secondary" onclick="updatePps(<%=pps.getSeq() %>)">수정</button>	
+	<button type="button" class="btn btn-secondary" onclick="deletePps(<%=pps.getSeq() %>)">삭제</button>
 	<%
 		}
 	%>
