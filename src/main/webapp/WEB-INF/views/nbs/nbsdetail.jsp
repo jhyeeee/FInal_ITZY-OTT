@@ -10,25 +10,38 @@
 <title>Insert title here</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  -->
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   
   <style type="text/css">
   	th{
   		background-color: #007bff;
-  		color: white;  		
+  		text-align: center;
+		vertical-align: middle!important;
   	}
-  	
+  	.table-info {
+  		    --bs-table-bg: #dee2e6;
+  		    --bs-table-border-color: #000;
+  	}
   	pre{
   		white-space: pre-wrap;
   		word-break: break-all;
   		overflow: auto;
-  	}  	
-  </style>
+  		text-align: left;
+  	} 	
+  </style>  
 </head>
+
 <body>
 
 <%
@@ -44,20 +57,20 @@
 	}	
 	%>  
 
-<h1>자세히 보기</h1>
+
 <hr>
 
 
 <div id="app" class="container">
 
-	<table class="table table-striped">
+	<table class="table table-hover">
 	<colgroup>
 		<col style="width: 150px"/>
 		<col style="width: 500px"/>
 	</colgroup>
 	
-	<tr>
-		<td colspan="2" style="font-size: 22px; font-weight: bold;"><%=nbs.getTitle() %></td>
+	<tr class="table-secondary">
+		<td colspan="2" style="font-size: 22px; font-weight: bold; text-align: center;"><%=nbs.getTitle() %></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
@@ -66,7 +79,10 @@
 	<tr>
 		<th>첨부파일</th>
 		<td>
-			<input type="button" value="<%=nbs.getFilename() %>" onclick="filedown(<%=nbs.getSeq() %>, '<%=nbs.getNewfilename() %>', '<%=nbs.getFilename() %>')">
+			<button type="button" class="btn btn-secondary"
+			 onclick="filedown(<%=nbs.getSeq() %>, '<%=nbs.getNewfilename() %>', '<%=nbs.getFilename() %>')">
+			 <%=nbs.getFilename() %>
+			 </button>
 		</td>
 	<tr>
 		<th>등록일</th>
@@ -83,22 +99,23 @@
 	
 	<tr>
 		<td colspan="2" style="background-color: white; text-align: center;">
-			<img src="upload/<%=nbs.getNewfilename()%>" style="width:80%;">
+			<img src="upload/<%=nbs.getNewfilename()%>" style="width:80%;"><br><br><br>
 			<pre style="font-size: 20px; font-family: 고딕, arial; background-color: white;"><%=nbs.getContent() %></pre>
 		</td>
 	</tr>
 	</table>
 	
 	<br>
-	<button type="button" class="btn btn-primary" onclick="location.href='nanswer.do?seq=<%=nbs.getSeq() %>'">답글</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='nbslist.do'">목록</button>
+	
+	<button type="button" class="btn btn-secondary" onclick="location.href='nbslist.do'">목록</button>
 
 
 <%
 		if(nbs.getId().equals(login.getId())){
 %>	
-	<button type="button" class="btn btn-primary" onclick="updateNbs(<%=nbs.getSeq() %>)">수정</button>	
-	<button type="button" class="btn btn-primary" onclick="deleteNbs(<%=nbs.getSeq() %>)">삭제</button>
+	<button type="button" class="btn btn-secondary" onclick="location.href='nanswer.do?seq=<%=nbs.getSeq() %>'">추가공고</button>
+	<button type="button" class="btn btn-secondary" onclick="updateNbs(<%=nbs.getSeq() %>)">수정</button>	
+	<button type="button" class="btn btn-secondary" onclick="deleteNbs(<%=nbs.getSeq() %>)">삭제</button>
 	<%
 		}
 	%>
@@ -136,14 +153,13 @@
 		<col width="1500px"><col width="150px">
 			<tr>
 				<td>comment</td>
-				<td style="padding-left: 30px">올리기</td>
 			</tr>
 			<tr>
 				<td>
 					<textarea rows="3" class="form-control" name="content"></textarea>
 				</td>
 				<td style="padding-left: 30px">
-					<button type="submit" class="btn btn-primary btn-block p-4">완료</button>
+					<button type="submit" class="btn btn-secondary">완료</button>
 				</td>
 			</tr>
 		</table>
@@ -157,7 +173,8 @@
 	
 	</table>
 </div>
-
+<br>
+<br>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -172,10 +189,10 @@
 				$.each(list, function(index, item){
 					let str = "<tr class='table-info'>"
 							+ 	"<td>작성자:" + item.id + "</td>"
-							+ 	"<td>작성일:" + item.wdate + "</td>"
+							+ 	"<td style='text-align:right;'>작성일:" + item.regdate + "</td>"
 							+ "</tr>"
 							+ "<tr>"
-							+ 	"<td colspan='2'>" + item.content + "</td>"
+							+ 	"<td colspan='2'>" + item.content + "</td><br>"
 							+ "</tr>";
 					$("#tbody").append(str);					
 				});
