@@ -31,8 +31,12 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -41,17 +45,29 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
 <link rel="stylesheet" href="css/common.css"/>
 <style type="text/css">
-main{	
-		width:1200px;
-		margin: 0 auto;
-		margin-bottom: 80px;
-	}
-.table th, .table td {
-	text-align: center;
-	vertical-align: middle!important;
+.page-link {
+    color:#212529;
 }
-.wrap{
-	position: relative;
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle!important;
+}
+.container {
+    width: 100%;
+    overflow-y:auto; 
+}
+
+body{
+display: flex, flex-direction: column;
+height: 100%;
+}
+.content{
+flex: 1;
+}
+.active>.page-link, .page-link.active {
+    background-color: #333;
+    text-color: black;
 }
 </style>
 
@@ -63,11 +79,12 @@ main{
 </div>
 <hr>
 <div align="center">
-	<table class="table table-hover table-sm" style="width: 1000px">
+	<table class="table table-hover" style="width: 1000px">
 	<col width="70"><col width="100"><col width="300"><col width="70">
 	<col width="70"><col width="80"><col width="100">
 
 		<thead>
+		<tr class="table-secondary">
 			<tr>
 				<th>번호</th><th>작성자</th><th>성함</th><th>사진</th>
 				<th>조회수</th><th>작성일</th><th>다운로드</th>				
@@ -100,8 +117,8 @@ main{
 				<td><%=pps.getId() %></td>	
 				<td style="text-align: center;">				
 					<%=Utility.arrow(pps.getDepth()) %>
-					<a href="ppsdetail.do?seq=<%=pps.getSeq() %>">
-					<%=pps.getTitle() %></a>
+			<strong><a href="ppsdetail.do?seq=<%=pps.getSeq() %>" style="text-align: center; text-decoration-line: none; color: black; ">
+                    <%=pps.getTitle() %></a></strong>
 				</td>
 				<td>
 				<img src="upload/<%=pps.getNewfilename()%>" style="width:188.8px; height:226.6px;">
@@ -150,7 +167,7 @@ main{
 				<input type="text" class="form-control" id="search" name="search" placeholder="검색어" value="<%=search %>">
 			<td style="padding-left: 5px">
 				<span>
-					<button type="button" class="btn btn-primary" onclick="searchBtn()">검색</button>
+				<button type="button" class="btn btn-secondary" onclick="searchBtn()">검색</button>
 				</span>
 			</td>
 		</tr>
@@ -166,7 +183,7 @@ main{
 	
 	
 	<br>
-	<button type="button" onclick="ppsWrite()">프로필 등록</button>	
+	<button type="button" class="btn btn-secondary" onclick="ppsWrite()">프로필 등록</button>	
 </div>
 
 <!-- 파일다운 (controller -> downloadview) -->
