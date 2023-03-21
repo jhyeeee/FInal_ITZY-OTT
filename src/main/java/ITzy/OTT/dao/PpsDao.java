@@ -10,6 +10,7 @@ public interface PpsDao {
 	int getAllPps(PpsParam pps);
 	int uploadPps(PpsDto dto);
 	void downcount(int seq);
+	void readcount(int seq);
 	PpsDto getPps(int seq);
 	int updatePps(PpsDto dto);
 	PpsDto deletePps(int seq);

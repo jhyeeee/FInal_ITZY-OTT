@@ -140,7 +140,7 @@ public class PpsController {
 		public String ppsdetail(Model model, int seq) {
 			PpsDto pps = service.getPps(seq);
 			model.addAttribute("pps", pps);
-			
+			service.readcount(seq);
 			return "pps/ppsdetail";
 		}
 		

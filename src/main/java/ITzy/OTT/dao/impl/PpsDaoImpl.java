@@ -30,6 +30,11 @@ public class PpsDaoImpl implements PpsDao{
 	public void downcount(int seq) {
 		session.update(ns + "downcount", seq);
 	}
+	
+	@Override
+	public void readcount(int seq) {
+		session.update(ns + "readcount", seq);
+	}
 
 	@Override
 	public PpsDto getPps(int seq) {
