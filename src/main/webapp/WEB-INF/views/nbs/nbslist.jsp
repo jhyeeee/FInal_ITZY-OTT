@@ -68,9 +68,11 @@ height: 100%;
 .content{
 flex: 1;
 }
+<<<<<<< Updated upstream
 .active>.page-link, .page-link.active {    
     background-color: #333;
     text-color: black;
+=======
 }
 </style>
 
