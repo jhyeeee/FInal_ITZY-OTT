@@ -88,6 +88,22 @@ public class BbsDaoImpl implements BbsDao{
 		session.update(ns + "downcount", seq);
 	}
 
+	@Override
+	public void readcount(int seq) {
+		session.update(ns + "readcount", seq);
+		
+	}
+
+	@Override
+	public int writeBbsAf(BbsDto dto) {
+		return session.insert(ns + "writeBbsAf", dto);
+	}
+
+	@Override
+	public int uploadBbs(BbsDto dto) {
+		return session.insert(ns + "uploadBbs", dto);
+	}
+
 		
 	
 }

@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ITzy.OTT.dto.BbsComment;
 import ITzy.OTT.dto.BbsDto;
 import ITzy.OTT.dto.BbsParam;
+import ITzy.OTT.dto.NbsDto;
 import ITzy.OTT.service.BbsService;
 import ITzy.OTT.util.BbsUtil;
 
@@ -71,12 +72,52 @@ public class BbsController {
 	}
 	
 
+	@PostMapping(value = "bbsupload.do")
+	public String bbsupload(BbsDto dto,
+			@RequestParam(value = "fileload", required = false)
+			MultipartFile fileload,	HttpServletRequest req) {	
+
+		if (dto.getTitle().isEmpty()) {
+		return "redirect:/nbswrite.do";
+		} 			
+		// getting original file name
+		String filename = fileload.getOriginalFilename();
+		
+		// setting file name to DTO
+		dto.setFilename(filename);
+		
+		// configuration of the path of upload to server of folder
+		// server
+		String fupload = req.getServletContext().getRealPath("/upload");
+		
+		// folder
+		//String fupload = "c:\\temp";
+		
+		System.out.println("fupload:" +fupload);
+		
+		// 충돌되지 않는 파일명으로 변환
+		String newfilename = BbsUtil.getNewFileName(filename);
+		// setting the converted name to DTO
+		dto.setNewfilename(newfilename);
+		
+		File file = new File(fupload + "/" + newfilename);
+		try {
+		// 실제로 파일 생성 + 기입 = 업로드
+		FileUtils.writeByteArrayToFile(file, fileload.getBytes());				
+		// db에 저장
+		service.uploadBbs(dto);
+		} catch (IOException e) {
+		e.printStackTrace();
+		}						
+		return "redirect:/bbslist.do";
+	}
+	
 	@PostMapping(value = "bbswriteAf.do")
 	public String bbswriteAf(Model model, BbsDto dto, 
 							@RequestParam(value = "fileload", required = false)
 							MultipartFile fileload,
 							HttpServletRequest req) {
-		
+	
 		// 파일업로드
 		// filename 취득
 		String filename = fileload.getOriginalFilename();	// 원본의 파일명
@@ -84,12 +125,9 @@ public class BbsController {
 		dto.setFilename(filename);	// 원본 파일명(DB)
 		
 		// upload의 경로 설정
-		// server
 		String fupload = req.getServletContext().getRealPath("/upload");
 		
-		// 폴더
-	//	String fupload = "c:\\temp";
-		
+		//	String fupload = "c:\\temp";		
 		System.out.println("fupload:" + fupload);
 		
 		// 파일명을 충돌되지 않는 명칭(Date)으로 변경
@@ -99,33 +137,31 @@ public class BbsController {
 		
 		File file = new File(fupload + "/" + newfilename);
 		
+		/*
+		 * try { // 실제로 파일 생성 + 기입 = 업로드 FileUtils.writeByteArrayToFile(file,
+		 * fileload.getBytes());
+		 * 
+		 * // db에 저장 boolean isS = service.writeBbs(dto); String bbswrite = ""; if(isS)
+		 * { bbswrite = "BBS_ADD_OK"; }else { bbswrite = "BBS_ADD_NG"; }
+		 * model.addAttribute("bbswrite", bbswrite); // service.writeBbs(dto);
+		 * 
+		 * } catch (IOException e) { e.printStackTrace(); }
+		 */		
 		try {
 			// 실제로 파일 생성 + 기입 = 업로드
-			FileUtils.writeByteArrayToFile(file, fileload.getBytes());
-			
+			FileUtils.writeByteArrayToFile(file, fileload.getBytes());				
 			// db에 저장
-			boolean isS = service.writeBbs(dto);
-			String bbswrite = "";		
-			if(isS) {
-				bbswrite = "BBS_ADD_OK";
-			}else {
-				bbswrite = "BBS_ADD_NG";
-			}
-			model.addAttribute("bbswrite", bbswrite);
-//			service.writeBbs(dto);
-			
-		} catch (IOException e) {			
+			service.writeBbsAf(dto);
+		} catch (IOException e) {
 			e.printStackTrace();
-		}			
-
-		// return "message";
-		return "redirect:/bbslist.do";	// controller에서  controller로 이동시 == sendRedirect
-		// return "forward:/bbslist.do";	// controller에서  controller로 이동시 == forward
+		}	
+		return "redirect:/bbslist.do";	
 	}
 	
 	@GetMapping(value = "bbsdetail.do")
 	public String bbsdetail(Model model, int seq) {
 		BbsDto dto = service.getBbs(seq);
+		service.readcount(seq);
 		model.addAttribute("bbsdto", dto);
 		
 		return "bbs/bbsdetail";
@@ -139,14 +175,18 @@ public class BbsController {
 		return "bbs/bbsupdate";
 	}
 
-	/*
-	 * @GetMapping(value = "bbsdelete.do") public String bbsdelete(Model model, int
-	 * seq) { BbsDto dto = service.getBbs(seq); model.addAttribute("dto", dto);
-	 * 
-	 * return "bbsdelete"; }
-	 */
+	
+	  @GetMapping(value = "bbsdelete.do")
+	  public String bbsdelete(Model model, int seq) {
+		  
+		  BbsDto dto = service.getBbs(seq); 
+		  model.addAttribute("dto", dto);
+	  
+		  return "bbsdelete"; 
+	 }
+	 
 	@GetMapping(value = "bbsdeleteAf.do")
-    public String bbsdelete(Model model, int seq) {
+    public String bbsdeleteAf(Model model, int seq) {
         BbsDto dto = service.deleteBbs(seq);
         model.addAttribute("dto", dto);
 

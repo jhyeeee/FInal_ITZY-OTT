@@ -7,13 +7,15 @@ import org.springframework.web.multipart.MultipartFile;
 import ITzy.OTT.dto.BbsComment;
 import ITzy.OTT.dto.BbsDto;
 import ITzy.OTT.dto.BbsParam;
+import ITzy.OTT.dto.NbsDto;
 
 public interface BbsService {
 	List<BbsDto> bbslist(BbsParam bbs);	
 	int getAllBbs(BbsParam bbs);
 	
 	boolean writeBbs(BbsDto dto);
-	
+	boolean writeBbsAf(BbsDto dto);
+	void readcount(int seq);		
 	BbsDto getBbs(int seq);
 	
 	boolean updateBbs(BbsDto dto);	
@@ -26,7 +28,7 @@ public interface BbsService {
 	BbsDto deleteBbs(int seq);
 
 	void downcount(int seq);
+	boolean uploadBbs(BbsDto dto);
 	
-	static final String IMAGE_REPO="C:\\OTTproject\\image";
-	String saveFile(MultipartFile file);
+//	String saveFile(MultipartFile file);
 }

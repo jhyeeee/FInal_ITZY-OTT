@@ -47,29 +47,41 @@ th{
 <table class="table table-sm">
 <col width="100px"><col width="500px">
 
-<tr>
-	<th>아이디</th>
-	<td>		
-		<%=dto.getId() %>
-		<input type="hidden" id="id" name="id" value="<%=dto.getId() %>">		
-	</td>
-</tr>
-<tr>
-	<th class="align-middle">제목</th>
-	<td>
-		<input type="text" id="title" name="title" size="50px" class="form-control form-control-lg" value='<%=dto.getTitle() %>'>
-	</td>
-</tr>
-<tr>	
-	<td colspan="2">
-		<textarea rows="18" id="content" name="content" class="form-control"><%=dto.getContent()  %></textarea>
-	</td>
-</tr>
-<tr>
-	<td colspan="2" align="right" style="padding-top: 20px">
-		<button type="button" class="btn btn-primary">글수정 완료</button>
-	</td>
-</tr>
+	<tr>
+		<th>아이디</th>
+		<td>		
+			<%=dto.getId() %>
+			<input type="hidden" id="id" name="id" value="<%=dto.getId() %>">		
+		</td>
+	</tr>
+	<tr>
+		<th class="align-middle">제목</th>
+		<td>
+			<input type="text" id="title" name="title" size="50px" class="form-control form-control-lg" value='<%=dto.getTitle() %>'>
+		</td>
+	</tr>
+	<tr>
+		<th>첨부파일</th>
+		<td><input type="button" value="<%=dto.getFilename() %>"
+			 onclick="filedown(<%=dto.getSeq() %>, '<%=dto.getNewfilename() %>', '<%=dto.getFilename() %>')">
+			<input type="hidden" name="filename" value="<%=dto.getFilename() %>">
+			<input type="hidden" name="newfilename" value="<%=dto.getNewfilename() %>">
+		</td>
+	</tr>
+	<tr>
+		<th>첨부파일 변경</th>
+		<td><input type="file" name="fileload"></td>
+	</tr>	
+	<tr>	
+		<td colspan="2">
+			<textarea rows="18" id="content" name="content" class="form-control"><%=dto.getContent()  %></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="padding-top: 20px">
+			<button type="button" class="btn btn-primary">글수정 완료</button>
+		</td>
+	</tr>
 
 </table>
 </form>

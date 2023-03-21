@@ -2,7 +2,6 @@
 <%@page import="ITzy.OTT.dto.BbsDto"%>
 <%@page import="ITzy.OTT.dto.MemberDto"%>
 <%@page import="ITzy.OTT.util.Utility"%>
-
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -37,26 +36,41 @@ if (login == null) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	
 <link rel="stylesheet" href="./css/common.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <!-- <script type="text/javascript" src="./jquery/jquery.twbsPagination.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
 <link rel="stylesheet" href="css/common.css"/>
 <style type="text/css">
-.table th, .table td {
-	text-align: center;
-	vertical-align: middle!important;
+.page-link {
+    color:#212529;
 }
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle!important;
+}
+.container {
+    width: 100%;
+    overflow-y:auto; 
+}
+
 body{
 display: flex, flex-direction: column;
 height: 100%;
 }
 .content{
 flex: 1;
+}
+.active>.page-link, .page-link.active {
+    background-color: #333;
+    text-color: black;
 }
 </style>
 
@@ -70,10 +84,10 @@ flex: 1;
 <div class="content">
 <div align="center">
 
-<table class="table table-hover table-sm" style="width: 1000px">
+<table class="table table-hover" style="width: 1000px">
 <col width="70"><col width="600"><col width="100"><col width="150">
 	<thead>
-		<tr class="bg-primary" style="color: black;">
+		<tr class="table-secondary">
 			<th>번호</th><th>제목</th><th>조회수</th><th>작성자</th>
 		</tr>
 	</thead>
@@ -105,9 +119,9 @@ if(list == null || list.size() == 0){
 					
 					<a href="bbsdetail.do?seq=<%=bbs.getSeq() %>">
  					
-<%-- 					<img src="upload/<%=dto.getNewfilename()%>" style="width:60.0px; height:40.0px;"> --%>
-					 
-						<%=bbs.getTitle() %>
+					<strong><a href="bbsdetail.do?seq=<%=bbs.getSeq() %>" style="text-align: center; text-decoration-line: none; color: black; ">
+					                    <%=bbs.getTitle() %></a></strong>
+
 					</a>							
 				<%
 			}else if(bbs.getDel() == 1){
@@ -134,7 +148,7 @@ if(list == null || list.size() == 0){
 <table style="margin-left: auto; margin-right: auto; margin-top: 3px; margin-bottom: 3px">
 	<tr>
 		<td style="padding-left: 5px">
-			<select class="custom-select" id="choice" name="choice">
+			<select class="btn btn-secondary" id="choice" name="choice">
 				<option selected>검색</option>
 				<option value="title">제목</option>
 				<option value="content">내용</option>
@@ -145,7 +159,7 @@ if(list == null || list.size() == 0){
 			<input type="text" class="form-control" id="search" name="search" onkeyup="enterKeyEvent()" placeholder="검색어" value="<%=search %>">
 		<td style="padding-left: 5px">
 			<span>
-				<button type="button" class="btn btn-primary" onclick="searchBtn()">검색</button>
+				<button type="button" class="btn btn-secondary" onclick="searchBtn()">검색</button>
 			</span>
 		</td>
 	</tr>
@@ -179,7 +193,7 @@ for(int i = 0;i < pageBbs; i++){
 
 <br>
 <a href="bbswrite.do">글쓰기</a>
-
+<button type="button" class="btn btn-secondary" onclick="bbsWrite()">글쓰기</button>
 </div>
 </div>
 <script type="text/javascript">
