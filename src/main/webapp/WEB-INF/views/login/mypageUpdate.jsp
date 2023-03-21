@@ -23,7 +23,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 <style type="text/css">
-
+	main{
+		margin: 138px auto;
+	}
     .mypage_wrap{
         
         width: 400px;

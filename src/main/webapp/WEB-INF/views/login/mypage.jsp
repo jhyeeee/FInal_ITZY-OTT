@@ -24,7 +24,7 @@
 <style type="text/css">
 	main{	
 		width:1200px;
-		margin: 60px auto;
+		margin: 93px auto;
 		
 	}
     .mypage_wrap{
