@@ -18,7 +18,6 @@
 	if(login == null){
 		%>
 		<script>
-		alert('로그인 해 주십시오');
 		location.href = "login.do";
 		</script>
 	<%

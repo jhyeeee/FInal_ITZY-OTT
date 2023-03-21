@@ -10,7 +10,8 @@ public interface PpsService {
 	public List<PpsDto> ppslist(PpsParam pps);
 	int getAllPps(PpsParam pps);
 	boolean uploadPps(PpsDto dto);
-	void downcount(int seq);	
+	void downcount(int seq);
+	void readcount(int seq);
 	PpsDto getPps(int seq);
 	boolean updatePps(PpsDto dto);
 	PpsDto deletePps(int seq);

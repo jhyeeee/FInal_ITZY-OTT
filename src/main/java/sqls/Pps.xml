@@ -58,7 +58,7 @@
 			</if>					
 	</select>
 	
-		<update id="readcountPps" parameterType="Integer">
+		<update id="readcount" parameterType="Integer">
 		update pps
 		set readcount = readcount + 1
 		where seq = #{seq}

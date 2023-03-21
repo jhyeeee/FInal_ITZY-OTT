@@ -31,6 +31,11 @@ public class PpsServiceImpl implements PpsService{
 	public void downcount(int seq) {
 		dao.downcount(seq);
 	}
+	
+	@Override
+	public void readcount(int seq) {
+		dao.readcount(seq);
+	}
 
 	@Override
 	public PpsDto getPps(int seq) {
