@@ -31,7 +31,11 @@
   		white-space: pre-wrap;
   		word-break: break-all;
   		overflow: auto;
-  	}  	
+  	}  
+  	img{
+  		width:50%;
+  		margin:20px 0;
+  	}	
   </style>
 </head>
 <body>
@@ -88,6 +92,7 @@
 	
 	<tr>
 		<td colspan="2" style="background-color: white;">
+			<img alt="portfolio" src="./upload/<%=pps.getNewfilename() %>">
 			<pre style="font-size: 20px; font-family: 고딕, arial; background-color: white;"><%=pps.getContent() %></pre>
 		</td>
 	</tr>

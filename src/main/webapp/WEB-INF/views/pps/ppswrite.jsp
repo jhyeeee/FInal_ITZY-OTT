@@ -42,6 +42,9 @@
 		text-align: center;
 		vertical-align: middle;
 	}
+	img{
+		width:200px;
+	}
 	</style>
 </head>
 <body>
