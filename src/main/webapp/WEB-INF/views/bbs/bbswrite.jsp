@@ -140,7 +140,6 @@ if (login == null) {
   });
 </script>
 
-<%=request.getRealPath("/") %>
 
 <script type="text/javascript">
 $(document).ready(function() {
