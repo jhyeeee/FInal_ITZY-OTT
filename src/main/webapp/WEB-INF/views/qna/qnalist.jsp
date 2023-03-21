@@ -37,7 +37,6 @@ if (login == null) {
 	<div class="content">
 	<button class="btn btn-warning btn-sm" onclick=" wQna()"  style="float: right; margin-right: 15%;">건의하기</button>
 	<p>최신 10개의 건의글만 보여집니다</p>
-
 	
 		<div align="center">
 			<table style="width: 70%;"  class="table table-hover">

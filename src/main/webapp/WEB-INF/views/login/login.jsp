@@ -220,10 +220,6 @@ body, div, ul, li {
 			}).filter(':eq(0)').click();
 		});
 
-		/*
-		 cookie : id저장, pw저장 == String  	client
-		 session : login한 정보 == Object		server
-		 */
 
 		function account() {
 			location.href = "regi.do";

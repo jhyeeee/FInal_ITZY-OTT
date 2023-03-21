@@ -33,7 +33,7 @@ if (login == null) {
 
 	<form action="qnawriteAf.do" method="post" id=frm>
 		<div style="width: 70%;">
-			<table class="table table-hover">
+			<table class="table table">
 				<col width="20%">
 				<col width="80%">
 				<tr>

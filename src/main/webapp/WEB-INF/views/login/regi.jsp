@@ -203,7 +203,6 @@ $(function() {
 				<!--  -->
 
 
-
 				<div id="tab02">
 					<form action="regiAfBiz.do" method="post" id="regiForm2">
 						<div class="form-group input-group">
