@@ -158,13 +158,7 @@ public class CalController {
 	}
 	
 	
-	@GetMapping(value = "calmodal.do")
-	public String calmodal(int seq, Model model) {
-		CalDto dto = service.calModal(seq);
-		model.addAttribute("calmodal",dto);
-		
-		return "calmodal";
-	}
+
 
 	
 	@GetMapping(value = "calupdate.do")

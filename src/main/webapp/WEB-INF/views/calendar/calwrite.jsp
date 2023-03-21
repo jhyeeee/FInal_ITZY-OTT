@@ -16,11 +16,11 @@
 	main{	
 		width:1200px;
 		margin: 0 auto;
-		margin-bottom: 80px;
+		margin-top: 80px;
 	}
 	.cal_wrap{
 		width: 700px;
-		margin: 50px auto;
+		margin: 0px auto;
 		padding:30px;
 		border-radius: 20px;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

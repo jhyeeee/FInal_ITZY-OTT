@@ -36,7 +36,7 @@ List<CalDto> list = (List<CalDto>)request.getAttribute("list");
 	main{	
 		width:1200px;
 		margin: 0 auto;
-		margin-bottom: 80px;
+		margin-top: 80px;
 	}
 	h2{
 		font-size: 26px;

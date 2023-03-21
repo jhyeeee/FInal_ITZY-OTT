@@ -72,11 +72,7 @@ public class CalDaoImpl implements CalDao{
 		return session.selectList(ns + "calView", map);
 	}
 
-	@Override
-	public CalDto calModal(int seq) {
-		CalDto dto = session.selectOne(ns + "calModal", seq);
-		return dto;
-	}
+
 	
 	
 

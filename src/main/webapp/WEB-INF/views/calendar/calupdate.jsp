@@ -14,7 +14,7 @@
 	main{	
 		width:1200px;
 		margin: 0 auto;
-		margin-bottom: 80px;
+		margin-top: 80px;
 	}
 	.cal_wrap{
 		width: 700px;

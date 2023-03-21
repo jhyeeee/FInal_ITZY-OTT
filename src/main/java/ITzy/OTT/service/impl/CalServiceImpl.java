@@ -50,10 +50,8 @@ public class CalServiceImpl implements CalService{
 		return dao.calView(id, yyyyMM);
 	}
 
-	@Override
-	public CalDto calModal(int seq) {
-		return dao.calModal(seq);
-	}
+
+
 
 	
 	

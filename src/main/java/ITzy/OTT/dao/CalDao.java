@@ -16,7 +16,7 @@ public interface CalDao {
 	
 	//일정상세
 	public CalDto calDetail (int seq);
-	public CalDto calModal (int seq);
+
 	
 	//일정수정
 	public boolean calUpdate(CalDto dto);
