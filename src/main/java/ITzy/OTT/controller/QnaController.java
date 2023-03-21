@@ -27,6 +27,10 @@ public class QnaController {
 		
 		HttpSession session = req.getSession();
 		MemberDto login = (MemberDto)session.getAttribute("login");
+		if (login == null) {
+			return "redirect:/login.do";
+		}
+		
 		String id=login.getId();
 		
 		List<QnaDto> qnalist = service.myQna(id);
