@@ -68,18 +68,16 @@ height: 100%;
 .content{
 flex: 1;
 }
-<<<<<<< Updated upstream
 .active>.page-link, .page-link.active {    
     background-color: #333;
     text-color: black;
-=======
 }
 </style>
 
 </head>
 <body bgcolor="#e9e9e9">
 
-
+<h1 align="center">오디션 공고</h1>
 
 <div align="center">
 	<table class="table table-hover" style="width: 1000px">
@@ -117,7 +115,7 @@ flex: 1;
 				<td>				
 					<%=Utility.arrow(nbs.getDepth()) %>
 					<strong><a href="nbsdetail.do?seq=<%=nbs.getSeq() %>" style="text-align: center; text-decoration-line: none; color: black; ">
-					<%=nbs.getTitle() %></a></strong>>
+					<%=nbs.getTitle() %></a></strong>
 				</td>
 				<td>
 					<button class="btn btn-secondary" 

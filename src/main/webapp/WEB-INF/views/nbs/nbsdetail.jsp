@@ -58,7 +58,7 @@
 	%>  
 
 
-<hr>
+
 
 
 <div id="app" class="container">
