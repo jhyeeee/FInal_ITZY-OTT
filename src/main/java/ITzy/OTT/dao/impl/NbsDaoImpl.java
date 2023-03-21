@@ -27,6 +27,12 @@ public class NbsDaoImpl implements NbsDao{
 	public int uploadNbs(NbsDto dto) {
 		return session.insert(ns + "uploadNbs", dto);
 	}
+	
+	@Override
+	public void readcount(int seq) {
+		session.update(ns + "readcount", seq);
+		
+	}
 
 	@Override
 	public void downcount(int seq) {
@@ -73,6 +79,8 @@ public class NbsDaoImpl implements NbsDao{
 	public List<NbsComment> commentList(int seq) {
 		return session.selectList(ns + "commentList", seq);
 	}
+
+	
 
 	
 }

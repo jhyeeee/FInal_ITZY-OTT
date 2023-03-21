@@ -31,11 +31,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 	<style type="text/css">
-	main{	
-		width:1200px;
-		margin: 0 auto;
-		margin-bottom: 80px;
-	}
 	th{
 		background-color: #007bff;
 		color: white;

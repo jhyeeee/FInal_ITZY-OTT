@@ -17,12 +17,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   
   <style type="text/css">
-  main{	
-		width:1200px;
-		margin: 0 auto;
-		margin-bottom: 80px;
-		overflow:hidden;
-	}
   	th{
   		background-color: #007bff;
   		color: white;  		
@@ -88,7 +82,8 @@
 	</tr>
 	
 	<tr>
-		<td colspan="2" style="background-color: white;">
+		<td colspan="2" style="background-color: white; text-align: center;">
+			<img src="upload/<%=nbs.getNewfilename()%>" style="width:80%;">
 			<pre style="font-size: 20px; font-family: 고딕, arial; background-color: white;"><%=nbs.getContent() %></pre>
 		</td>
 	</tr>
@@ -109,7 +104,7 @@
 	%>
 
 </div>
-	<form name="file_down" action="filedownload.do" method="post">
+	<form name="file_down" action="nfiledownload.do" method="post">
 		<input type="hidden" name="newfilename">
 		<input type="hidden" name="filename">
 		<input type="hidden" name="seq">
