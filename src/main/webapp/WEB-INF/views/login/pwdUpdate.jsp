@@ -22,7 +22,9 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <style type="text/css">
-
+	main{
+		margin: 131px auto;
+	}
     .mypage_wrap{
         
         width: 400px;
@@ -93,15 +95,15 @@
 			</p>
 			<p>
 				<label>기존 비밀번호</label><br> 
-				<input class="" type="password" id="old_pw" name="pwd" value="" required> 
+				<input class="" type="password" id="old_pw" name="old_pwd" value="" required> 
 			</p>
 			<p>
 				<label>새로운 비밀번호</label><br> 
-				<input class="" type="password" id="new_pw" name="new_pwd" value="" required> 
+				<input class="" type="password" id="new_pw" name="pwd" value="" required> 
 			</p>
 			<p>
 				<label>새로운 비밀번호 확인</label><br> 
-				<input class="" type="password" id="new_pw_chk" name="new_pwd_chk" value="" required> 
+				<input class="" type="password" id="new_pw_chk" name="new_pw_chk" value="" required> 
 			</p>
 			<p id="pw_ck" style="text-align:center;"></p>
 			

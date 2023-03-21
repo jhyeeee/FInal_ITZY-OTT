@@ -31,7 +31,12 @@ public class NbsServiceImpl implements NbsService{
 		int count = dao.uploadNbs(dto);
 		return count>0?true:false;
 	}
-
+	
+	@Override
+	public void readcount(int seq) {
+		dao.readcount(seq);	
+	}
+	
 	@Override
 	public void downcount(int seq) {
 		dao.downcount(seq);		
@@ -70,5 +75,7 @@ public class NbsServiceImpl implements NbsService{
 	public List<NbsComment> commentList(int seq) {
 		return dao.commentList(seq);
 	}
+
+	
 
 }

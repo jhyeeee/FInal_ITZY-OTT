@@ -20,7 +20,8 @@ import ITzy.OTT.dto.NbsParam;
 import ITzy.OTT.dto.NbsComment;
 import ITzy.OTT.dto.NbsDto;
 import ITzy.OTT.service.NbsService;
-import ITzy.OTT.util.NdsUtil;
+import ITzy.OTT.service.impl.NbsServiceImpl;
+import ITzy.OTT.util.NbsUtil;
 
 @Controller
 public class NbsController {
@@ -29,7 +30,7 @@ public class NbsController {
 		
 		@GetMapping(value = "nbslist.do")
 		public String nbslist(NbsParam nbs, Model model) {
-
+ 
 			// 글의 시작과 끝
 			int pn = nbs.getNpageNumber();
 			int start = 1 + pn * 10; 
@@ -66,14 +67,30 @@ public class NbsController {
 			return "nbs/nbswrite";
 		}
 		
+//		@PostMapping(value = "nbswriteAf.do")
+//		public String nbswriteAf(Model model, NbsDto dto) {
+//			boolean isS = service.uploadNbs(dto);
+//			String nbswrite = "";
+//			if (isS) {
+//				nbswrite = "NBS_ADD_OK";
+//			} else {
+//				nbswrite = "NBS_ADD_NO";
+//			}
+//			model.addAttribute("nbswrite", nbswrite);
+//			return "message"; 			
+//		}
+		
 		
 		
 		
 		@PostMapping(value = "nbsupload.do")
-		public String nbsupload(NbsParam nbs, Model model,NbsDto dto,
+		public String nbsupload(NbsDto dto,
 								@RequestParam(value = "fileload", required = false)
-								MultipartFile fileload,
-								HttpServletRequest req) {
+								MultipartFile fileload,	HttpServletRequest req) {	
+			
+			if (dto.getTitle().isEmpty()) {
+				return "redirect:/nbswrite.do";
+			} 			
 			// getting original file name
 			String filename = fileload.getOriginalFilename();
 			
@@ -90,27 +107,26 @@ public class NbsController {
 			System.out.println("fupload:" +fupload);
 			
 			// 충돌되지 않는 파일명으로 변환
-			String newfilename = NdsUtil.getNewFileName(filename);
+			String newfilename = NbsUtil.getNewFileName(filename);
 			// setting the converted name to DTO
 			dto.setNewfilename(newfilename);
 			
 			File file = new File(fupload + "/" + newfilename);
-			try {
-				// 실제로 파일 생성 + 기입 = 업로드
-				FileUtils.writeByteArrayToFile(file, fileload.getBytes());				
-				// db에 저장
-				service.uploadNbs(dto);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
+				try {
+					// 실제로 파일 생성 + 기입 = 업로드
+					FileUtils.writeByteArrayToFile(file, fileload.getBytes());				
+					// db에 저장
+					service.uploadNbs(dto);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}						
 			return "redirect:/nbslist.do";
-		}
+			}
 		
 		
 		
 		
-		@PostMapping(value = "filedownLoad.do")
+		@PostMapping(value = "nfiledownload.do")
 		public String filedownload(int seq, String filename, String newfilename,
 						Model model, HttpServletRequest req) {
 			// 경로
@@ -130,7 +146,8 @@ public class NbsController {
 			model.addAttribute("filename", filename);
 			model.addAttribute("seq", seq);					// 다운로드 카운트 증가
 			
-			return "downloadView";
+			
+			return "DownloadView";
 		}
 		
 		
@@ -139,8 +156,8 @@ public class NbsController {
 		@GetMapping(value = "nbsdetail.do")
 		public String nbsdetail(Model model, int seq) {
 			NbsDto nbs = service.getNbs(seq);
+			service.readcount(seq);
 			model.addAttribute("nbs", nbs);
-			
 			return "nbs/nbsdetail";
 		}
 		
@@ -155,14 +172,14 @@ public class NbsController {
 		}
 		
 		@PostMapping(value = "nbsupdateAf.do")
-		public String nbsupdateAf(int seq,Model model,NbsDto dto, 
+		public String nbsupdateAf(Model model,NbsDto dto, 
 								@RequestParam(value = "fileload", required = false)
 								MultipartFile fileload,
 								HttpServletRequest req) {				
 			String filename = fileload.getOriginalFilename();	
 			
 			if (filename != null && !filename.equals("")) {		//파일 변경 시
-				String newfilename = NdsUtil.getNewFileName(filename);
+				String newfilename = NbsUtil.getNewFileName(filename);
 				dto.setFilename(filename);
 				dto.setNewfilename(newfilename);
 				
@@ -180,48 +197,16 @@ public class NbsController {
 			}else {												// 파일 변경 없을 시
 				service.updateNbs(dto);
 			}
-			
-//			NbsDto nbs = service.getNbs(seq);
-//			model.addAttribute("nbs", nbs);
-
 			return "redirect:/nbsdetail.do?seq=" + dto.getSeq();
 		}
 			
 		
 		@GetMapping(value = "nbsdeleteAf.do")
-		public String nbsdelete(NbsParam nbs,Model model, int seq) {
+		public String nbsdelete(Model model, int seq) {
 			NbsDto dto = service.deleteNbs(seq);
 			model.addAttribute("dto", dto);
-			
-			// 글의 시작과 끝
-						int pn = nbs.getNpageNumber();
-						int start = 1 + pn * 10; 
-						int end = (pn + 1) * 10;
-						nbs.setStart(start);
-						nbs.setEnd(end);
-						List<NbsDto> list = service.nbslist(nbs);
 
-						int len = service.getAllNbs(nbs);
-						int pageNbs = len / 10;
-						if ((len % 10) > 0) {
-							pageNbs = pageNbs + 1;
-						}
-
-						if (nbs.getNchoice() == null || nbs.getNchoice().equals("") || nbs.getNsearch() == null
-								|| nbs.getNsearch().equals("")) {
-							nbs.setNchoice("검색");
-							nbs.setNsearch("");
-						}
-
-						model.addAttribute("nbslist", list); 
-						model.addAttribute("pageNbs", pageNbs); // 총 페이지 수
-						model.addAttribute("npageNumber", nbs.getNpageNumber()); // 현재 페이지
-						model.addAttribute("nchoice", nbs.getNchoice());
-						model.addAttribute("nsearch", nbs.getNsearch());
-			
-			
-			
-			return "redirect:/nbs/nbslist.do";
+			return "redirect:/nbslist.do";
 		}
 		
 		
@@ -245,24 +230,21 @@ public class NbsController {
 				nanswer = "NBS_ANSWER_NO";
 			}
 			model.addAttribute("nanswer", nanswer);
-			
+
 			return "message";
 		}
 		
 
 		// TODO 댓글
 		@PostMapping(value = "ncommentWriteAf.do")
-		public String commentWriteAf(NbsComment bc, int seq, Model model) {
+		public String commentWriteAf(NbsComment bc) {
 			boolean isS = service.commentWrite(bc);
 			if (isS) {
-				System.out.println("댓글작성 성공");
+//				System.out.println("댓글작성 성공");
 			} else {
-				System.out.println("댓글작성 실패");
+//				System.out.println("댓글작성 실패");
 			}
-			
-			NbsDto nbs = service.getNbs(seq);
-			model.addAttribute("nbs", nbs);
-			return "nbs/nbsdetail";
+			return "redirect:/nbsdetail.do?seq=" + bc.getSeq();
 		}
 
 		@ResponseBody

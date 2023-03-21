@@ -26,6 +26,7 @@
 		margin: 0 auto;
 		margin-bottom: 80px;
 	}
+<<<<<<< HEAD
   	  th{
           background-color: #007bff;
           text-align: center;
@@ -41,6 +42,22 @@
           overflow: auto;
           text-align: left;
       }
+=======
+  	th{
+  		background-color: #007bff;
+  		color: white;  		
+  	}
+  	
+  	pre{
+  		white-space: pre-wrap;
+  		word-break: break-all;
+  		overflow: auto;
+  	}  
+  	img{
+  		width:50%;
+  		margin:20px 0;
+  	}	
+>>>>>>> e27c74386f7df04fd1e3def8137d80a65ad92176
   </style>
 </head>
 <body>
@@ -98,6 +115,7 @@
 	
 	<tr>
 		<td colspan="2" style="background-color: white;">
+			<img alt="portfolio" src="./upload/<%=pps.getNewfilename() %>">
 			<pre style="font-size: 20px; font-family: 고딕, arial; background-color: white;"><%=pps.getContent() %></pre>
 		</td>
 	</tr>

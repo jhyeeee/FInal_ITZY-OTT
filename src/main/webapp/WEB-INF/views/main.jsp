@@ -202,15 +202,6 @@ header{
             <div class="aud_list">
                 <ul>
                     <li>
-                        <a href="nbsdetail.do?seq=1">
-                            <div class="list_img"><img src="./images/film.jpg" alt="film"></div>
-                            <div class="list_txt">
-                                <p>미디어 프로덕션 동아리 ‘구미호’의 단편 영화 <불가사리,의>에서 주연 배우 3명을 모집합니다</p>
-                                <p>미디어 프로덕션 동아리 구미호</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
                         <a href="nbsdetail.do?seq=2">
                             <div class="list_img"><img src="./images/film.jpg" alt="film"></div>
                             <div class="list_txt">
@@ -223,8 +214,8 @@ header{
                         <a href="nbsdetail.do?seq=3">
                             <div class="list_img"><img src="./images/film.jpg" alt="film"></div>
                             <div class="list_txt">
-                                <p>미디어 프로덕션 동아리 ‘구미호’의 단편 영화 <불가사리,의>에서 주연 배우 3명을 모집합니다</p>
-                                <p>미디어 프로덕션 동아리 구미호</p>
+                                <p>다랑 엔터테인먼트 장편상업영화 <마지막 연가>에서 17~28세 여자 배우를 모집합니다.</p>
+                                <p>다랑 엔터테인먼트</p>
                             </div>
                         </a>
                     </li>
@@ -232,8 +223,17 @@ header{
                         <a href="nbsdetail.do?seq=4">
                             <div class="list_img"><img src="./images/film.jpg" alt="film"></div>
                             <div class="list_txt">
-                                <p>미디어 프로덕션 동아리 ‘구미호’의 단편 영화 <불가사리,의>에서 주연 배우 3명을 모집합니다</p>
-                                <p>미디어 프로덕션 동아리 구미호</p>
+                                <p>동국대학교 영화영상학과 졸업영화 <첨벙>에서 남자배우님을 모집합니다.</p>
+                                <p>동국대학교 영화영상학과</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="nbsdetail.do?seq=5">
+                            <div class="list_img"><img src="./images/film.jpg" alt="film"></div>
+                            <div class="list_txt">
+                                <p>오징어게임 시즌2 프로필 많은 지원 바랍니다!</p>
+                                <p>넷플릭스</p>
                             </div>
                         </a>
                     </li>
@@ -254,47 +254,47 @@ header{
                 </div>
                 <div class="port_list">
                     <ul>
-                        <li><a href="ppsdetail.do?seq=1">
+                        <li><a href="ppsdetail.do?seq=5">
                             <img src="./images/portfolio1.jpg" alt="">
                             <p>차은우</p>
                         </a></li>
-                        <li><a href="ppsdetail.do?seq=2">
+                        <li><a href="ppsdetail.do?seq=6">
                             <img src="./images/portfolio2.jpg" alt="">
                             <p>남지현</p>
                         </a></li>
 
-                        <li><a href="ppsdetail.do?seq=3">
+                        <li><a href="ppsdetail.do?seq=7">
                             <img src="./images/portfolio3.png" alt="">
                             <p>남주혁</p>
                         </a></li>
-                        <li><a href="ppsdetail.do?seq=4">
+                        <li><a href="ppsdetail.do?seq=8">
                             <img src="./images/portfolio4.jpg" alt="">
                             <p>배수지</p>
                         </a></li>
                             
-                        <li><a href="ppsdetail.do?seq=5">
+                        <li><a href="ppsdetail.do?seq=9">
                             <img src="./images/portfolio5.jpg" alt="">
                             <p>최우식</p>
                         </a></li>
-                        <li><a href="ppsdetail.do?seq=6">
+                        <li><a href="ppsdetail.do?seq=10">
                             <img src="./images/portfolio6.jpg" alt="">
                             <p>임지연</p>
                         </a></li>
                             
-                        <li><a href="ppsdetail.do?seq=7">
+                        <li><a href="ppsdetail.do?seq=11">
                             <img src="./images/portfolio7.jpg" alt="">
                             <p>박해진</p>
                         </a></li>
-                        <li><a href="ppsdetail.do?seq=8">
+                        <li><a href="ppsdetail.do?seq=12">
                             <img src="./images/portfolio8.jpg" alt="">
                             <p>전소민</p>
                         </a></li>
                             
-                        <li><a href="ppsdetail.do?seq=9">
+                        <li><a href="ppsdetail.do?seq=13">
                             <img src="./images/portfolio9.jpg" alt="">
                             <p>신승호</p>
                         </a></li>
-                        <li><a href="ppsdetail.do?seq=10">
+                        <li><a href="ppsdetail.do?seq=14">
                             <img src="./images/portfolio10.jpg" alt="">
                             <p>류혜영</p>
                         </a></li>
@@ -315,25 +315,25 @@ header{
             </div>
             <div class="com_list">
                 <ul>
-                    <li><a href="bbslist.do?seq=1">
+                    <li><a href="bbsdetail.do?seq=4">
                         <p>오디션 또 언제 열리는지 아시나요?</p>
                         <div class="com_list_txt">
                             <p>movielove</p>
-                            <p>03-19</p>
+                            <p>03-21</p>
                         </div>                        
                     </a></li>
-                    <li><a href="bbslist.do?seq=2">
+                    <li><a href="bbsdetail.do?seq=5">
                         <p>프로필 사진 추천 좀 해주세요</p>
                         <div class="com_list_txt">
                             <p>yumyum</p>
-                            <p>03-19</p>
+                            <p>03-21</p>
                         </div>
                     </a></li>
-                    <li><a href="bbslist.do?seq=3">
+                    <li><a href="bbsdetail.do?seq=6">
                         <p>연습실 여기 좋아요</p>                        
                         <div class="com_list_txt">
                             <p>practice</p>
-                            <p>03-19</p>
+                            <p>03-21</p>
                         </div>
                     </a></li>
                 </ul>

@@ -41,6 +41,7 @@
 		margin-bottom: 80px;
 	}
 	th{
+<<<<<<< HEAD
           background-color: #007bff;
           text-align: center;
         vertical-align: middle!important;
@@ -55,6 +56,16 @@
           overflow: auto;
           text-align: left;
       }
+=======
+		background-color: #007bff;
+		color: white;
+		text-align: center;
+		vertical-align: middle;
+	}
+	img{
+		width:200px;
+	}
+>>>>>>> e27c74386f7df04fd1e3def8137d80a65ad92176
 	</style>
 </head>
 <body>

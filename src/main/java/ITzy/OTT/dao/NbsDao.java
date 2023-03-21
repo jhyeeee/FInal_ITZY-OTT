@@ -10,6 +10,7 @@ public interface NbsDao {
 	List<NbsDto> nbslist(NbsParam nbs);
 	int getAllNbs(NbsParam nbs);
 	int uploadNbs(NbsDto dto);
+	void readcount(int seq);
 	void downcount(int seq);
 	NbsDto getNbs(int seq);
 	int updateNbs(NbsDto dto);
