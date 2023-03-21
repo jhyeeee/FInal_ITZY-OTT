@@ -135,7 +135,7 @@ body, div, ul, li {
 							<b>OTT PAGE LOGIN</b>
 						</p>
 					</div>
-					<div class="tab">
+					<div class="tab" align="center">
 					
 					
 					
@@ -163,6 +163,7 @@ body, div, ul, li {
 
 									<div class="text-center text-lg-start mt-4 pt-2">
 										<button type="submit" class="btn btn-warning btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+										<br>
 										<a href="#" onclick="account()" class="link-danger">회원가입하기</a>
 										
 								</form>
@@ -186,6 +187,7 @@ body, div, ul, li {
 
 								<div class="text-center text-lg-start mt-4 pt-2">
 									<button type="submit" class="btn btn-warning btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+									<br>
 									<a href="#" onclick="account()" class="link-danger">회원가입하기</a>
 								</div>
 							</form>

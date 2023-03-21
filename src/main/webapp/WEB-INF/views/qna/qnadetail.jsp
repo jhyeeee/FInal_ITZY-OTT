@@ -3,30 +3,17 @@
 <%@page import="ITzy.OTT.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-table, th, td {
-	border-collapse: collapse;
-	border: rgb(128, 128, 128) solid 1px;
-}
 
-th {
-	background-color: rgb(0, 0, 192);
-	color: white;
-}
 
-td {
-	padding: 10px;
-}
-
-.content {
-	font-size: 24px;
-}
-</style>
 <%
 MemberDto login = (MemberDto) session.getAttribute("login");
 if (login == null) {
@@ -45,12 +32,13 @@ QnaDto dto = (QnaDto) request.getAttribute("dto");
 %>
 </head>
 <body>
+<h2>Q&A답변</h2>
 
-	<div align="center">
+	<div style="width: 70%;">
 
-		<table>
-			<col width="200">
-			<col width="500">
+		<table class="table table">
+			<col width="20%">
+			<col width="80%">
 
 			<tr>
 				<th>아이디</th>
@@ -87,11 +75,20 @@ QnaDto dto = (QnaDto) request.getAttribute("dto");
 			<%
 			}
 			%>
-
-
+			
+			<tr>
+			<td colspan="2"> <button class="btn btn-secondary" onclick="back()">뒤로가기</button> </td>
+			</tr>
 
 		</table>
 	</div>
+
+<script type="text/javascript">
+function back() {
+	location.href = "qnalist.do";
+}
+</script>
+
 
 </body>
 
