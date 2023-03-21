@@ -8,7 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Q&A write</title>
-
+<style type="text/css">
+main{	
+		width:1200px;
+		margin: 0 auto;
+		margin-bottom: 80px;
+	}
+</style>
 
 <%
 MemberDto login = (MemberDto) session.getAttribute("login");

@@ -104,33 +104,7 @@ public class NbsController {
 				e.printStackTrace();
 			}
 			
-			// 글의 시작과 끝
-						int pn = nbs.getNpageNumber();
-						int start = 1 + pn * 10; 
-						int end = (pn + 1) * 10;
-						nbs.setStart(start);
-						nbs.setEnd(end);
-						List<NbsDto> list = service.nbslist(nbs);
-
-						int len = service.getAllNbs(nbs);
-						int pageNbs = len / 10;
-						if ((len % 10) > 0) {
-							pageNbs = pageNbs + 1;
-						}
-
-						if (nbs.getNchoice() == null || nbs.getNchoice().equals("") || nbs.getNsearch() == null
-								|| nbs.getNsearch().equals("")) {
-							nbs.setNchoice("검색");
-							nbs.setNsearch("");
-						}
-
-						model.addAttribute("nbslist", list); 
-						model.addAttribute("pageNbs", pageNbs); // 총 페이지 수
-						model.addAttribute("npageNumber", nbs.getNpageNumber()); // 현재 페이지
-						model.addAttribute("nchoice", nbs.getNchoice());
-						model.addAttribute("nsearch", nbs.getNsearch());
-			
-			return "nbs/nbslist";
+			return "redirect:/nbslist.do";
 		}
 		
 		
@@ -207,10 +181,10 @@ public class NbsController {
 				service.updateNbs(dto);
 			}
 			
-			NbsDto nbs = service.getNbs(seq);
-			model.addAttribute("nbs", nbs);
+//			NbsDto nbs = service.getNbs(seq);
+//			model.addAttribute("nbs", nbs);
 
-			return "nbs/nbsdetail";
+			return "redirect:/nbsdetail.do?seq=" + dto.getSeq();
 		}
 			
 		
@@ -247,7 +221,7 @@ public class NbsController {
 			
 			
 			
-			return "nbs/nbslist";
+			return "redirect:/nbs/nbslist.do";
 		}
 		
 		

@@ -16,25 +16,24 @@
 		padding: 0;
 	}
 	footer{
-		position:absolute;
-		bottom: 0;
-		width: 100%;
-		height: 130px;
-		background: #eee;
-		margin-top: 100px;
+	display:block;
+	width: 100%;
+    height: 130px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #eee;
 		
 	}
 	#footer_wrap{
 		width: 1200px;
-		margin: 0 auto;		
+		margin: 0 auto;
 		display: flex;
 	}
 	#footer_wrap .logo{
 		width: 50%;
 		height: 100%;
 		text-align: left;
-		padding-left: 20px ;
-		margin: 0 auto;
 		align-items: center;
         overflow: hidden;
 	}

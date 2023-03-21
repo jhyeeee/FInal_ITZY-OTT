@@ -23,6 +23,7 @@
 	}
     #header_wrap{
         width:1200px;
+        margin: 0 auto;
         height: 100%;       
         font-size: 18px;
         position: relative;
@@ -141,7 +142,7 @@
                         <a href="nbslist.do">오디션 공고</a>
                     </li>
                     <li>
-                        <a href="pdslist.do">커뮤니티</a>
+                        <a href="bbslist.do">커뮤니티</a>
                     </li>
                     <li>
                         <a href="ppslist.do">배우 프로필</a>

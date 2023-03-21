@@ -119,6 +119,50 @@ if(login != null && !login.equals("")){
 	}
 }
 
+/* *************마이페이지*********** */
+String update_mypage = (String)request.getAttribute("update_mypage");
+if(update_mypage != null && !update_mypage.equals("")){
+	if(update_mypage.equals("mypage_UPDATE_OK")){
+		%>
+		<script type="text/javascript">
+		alert("성공적으로 수정되었습니다");
+		location.href = "mypage.do";
+		</script>
+		<%
+	}
+	else{
+		String id = (String)request.getAttribute("login");
+		%>
+		<script type="text/javascript">
+		alert("다시 작성해 주십시오");
+		let id = "<%=login %>";		
+		location.href = "mypageUpdate.do;
+		</script>
+		<%
+	}	
+}
+
+String pwdupdateAf = (String)request.getAttribute("pwdupdateAf");
+if(pwdupdateAf != null && !pwdupdateAf.equals("")){
+	if(pwdupdateAf.equals("pwdupdate_UPDATE_OK")){
+		%>
+		<script type="text/javascript">
+		alert("성공적으로 수정되었습니다");
+		location.href = "mypage.do";
+		</script>
+		<%
+	}
+	else{
+		String id = (String)request.getAttribute("login");
+		%>
+		<script type="text/javascript">
+		alert("다시 작성해 주십시오");
+		let id = "<%=login %>";		
+		location.href = "pwdUpdate.do;
+		</script>
+		<%
+	}	
+}
 
 
 /* ***** QnA ***** */

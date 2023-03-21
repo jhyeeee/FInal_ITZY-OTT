@@ -7,8 +7,7 @@
 <%@page import="ITzy.OTT.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+ 
 
 
 <!DOCTYPE html>
@@ -19,29 +18,62 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="css/common.css"/>
 <style type="text/css">
-	body{
-		font-family: 'Noto Sans KR', sans-serif;
-		font-size: 15px;
-		color: #333;
+	.cal_wrap{
+		margin-bottom: 80px;
 	}
 	#calendar{
-		border-collapse: none;
+		margin: 0 auto;
+	}
+	#calendar, td, th{
+		border-collapse : collapse;
 		border: 1px solid #333;
 	}
+	#calendar th:nth-child(1){
+		color: red;
+	}
 	#calendar td{
-		width: 80px;
-		height: 80px;
+		width: 150px;
+		height: 150px;
 		text-align: left;
 		vertical-align: top;
 	}
-	a{
-		text-decoration: none;
+	td .cal_day{
+		font-size: 20px;
+		padding: 0 10px;
+
+	}
+	caption{
+		font-size: 30px;
+		margin: 30px 0;
+		position: relative;
+	}
+	caption a:nth-child(2){
+		margin-right: 15px;
+	}
+	caption a:nth-child(3){
+		margin-left: 15px;
+	}
+	caption a img{
+		width: 20px;
+	}
+	td .cal_write{
+		color: #90B7EC;
+		
+	}
+	td .cal_write span{
+		padding-top: 5px;
 	}
 	.viewcls a {
-		font-size: 13px;
+		font-size: 15px;
+		width:140px;
+      	overflow:hidden;
+      	text-overflow:ellipsis;
+      	white-space:nowrap;
 	}
+
 	.viewcls a:nth-child(1) > p {
 		background: lightblue;
 		margin: 3px;
@@ -114,8 +146,8 @@ if (login == null) {
 <body>
 
 
-<h1>일정관리</h1>
-	<table border="1" id="calendar">
+<div class="cal_wrap">
+	<table  id="calendar">
 		<caption>
 			<a href="calendar.do?year=<%=year-1 %>&month=<%=month %>"><img alt="" src="./images/left.gif" /></a>
 			<a href="calendar.do?year=<%=year %>&month=<%=month-1 %>"><img alt="" src="./images/prec.gif" /></a>
@@ -144,10 +176,10 @@ if (login == null) {
 			for(int i=1;i<=lastDay;i++){
 			%>
 				<td>
-					<a style="color:<%=CalUtil.fontColor(dayOfWeek, i) %>" href="callist.do?year=<%=year %>&month=<%=month %>&day=<%=i %>"><%=i%></a>
+					<a class="cal_day" style="color:<%=CalUtil.fontColor(dayOfWeek, i) %>" href="callist.do?year=<%=year %>&month=<%=month %>&day=<%=i %>"><%=i%></a>
 					
-					<a href="calwrite.do?year=<%=year %>&month=<%=month %>&day=<%=i %>">
-						<img alt="일정추가" src="./images/pen2.png" />
+					<a class="cal_write" href="calwrite.do?year=<%=year %>&month=<%=month %>&day=<%=i %>">
+						<span class="material-symbols-outlined">edit</span>
 					</a>
 					<div class="viewcls"><%= getCalView(i, vlist) %></div>
 					
@@ -183,11 +215,8 @@ if (login == null) {
  	    return vList;
  	}
  	
- 	 
- 	 
-
 	%>   
-
+</div><!-- cal_wrap -->
 
 	
 	

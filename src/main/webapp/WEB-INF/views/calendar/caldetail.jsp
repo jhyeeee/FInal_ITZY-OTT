@@ -15,6 +15,11 @@
 <title>Insert title here</title>
 
 <style type="text/css">
+	main{	
+		width:1200px;
+		margin: 0 auto;
+		margin-bottom: 80px;
+	}
 table, th, td{	
 	border-collapse : collapse;
 	border: rgb(128, 128, 128) solid 1px;	

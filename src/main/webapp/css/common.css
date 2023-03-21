@@ -5,9 +5,15 @@
     padding: 0;
 }
 body{
+	heiht: 100%;
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #333;
 }
+main{
+		width:1200px;
+		margin: 0 auto;
+		margin-bottom: 80px;
+	}
 a{
     text-decoration: none;
 }

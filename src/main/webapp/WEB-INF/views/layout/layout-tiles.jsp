@@ -9,10 +9,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="css/common.css"/>
+<style>
+
+	.wrap{
+		position: relative;
+		min-height: 100%;
+		padding-bottom: 130px;
+	}
+	main{
+		width: 1200px;
+		margin: 0 auto;
+	}
+
+</style>
 <body>
 
 
-<div align="center">
+<div class="wrap" >
 
 
 

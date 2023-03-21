@@ -42,9 +42,17 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
 <link rel="stylesheet" href="css/common.css"/>
 <style type="text/css">
+main{	
+		width:1200px;
+		margin: 0 auto;
+		margin-bottom: 80px;
+	}
 .table th, .table td {
 	text-align: center;
 	vertical-align: middle!important;
+}
+.wrap{
+	position: relative;
 }
 </style>
 

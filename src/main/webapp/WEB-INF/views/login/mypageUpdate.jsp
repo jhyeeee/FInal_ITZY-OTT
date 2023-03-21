@@ -21,9 +21,65 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 <style type="text/css">
 
+    .mypage_wrap{
+        
+        width: 400px;
+        margin: 60px auto;
+        padding: 20px 0;
+        border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    #myForm p{
+        align: center;
+        width: 250px;
+        margin:0 auto ;
+        margin-top: 20px;
+    }
+    label{
+        font-weight: bold;
+        color: #2475f0;
+        text-align: left;
+        font-size: 18px;
+    }
+    h3{
+        text-align: center;
+        font-size: 26px;
+        margin: 30px 0 ;
+    }
+    input{
+        width: 250px;
+        height: 30px;
+        margin-top: 10px;
+        border: none;
+        border-bottom: 2px solid #333;
+        font-size: 15px;
+    }
+
+
+    input:focus{
+        outline: none;
+        background: #d2f1ff;
+        border-radius: 5px;
+        color: #333;
+        
+    }
+    #myForm .update{
+        text-align: center;
+
+    }
+    #myForm .update button{
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+        background: #5494f5;
+        color: #fff ;
+        cursor: pointer;
+    }
 </style>
+
 </head>
 <body>
 <div class="mypage_wrap">
@@ -33,18 +89,18 @@
 		<form id="myForm" action="update_mypage.do" method="post">
 			<p> 
 				<label>ID</label><br> 
-				<input class="" type="text" id="id" name="id" readonly value="<%=login.getId() %>"> 
+				<input type="text" id="id" name="id" readonly value="<%=login.getId() %>"> 
 			</p>
 			<p>
 				<label>Name</label><br> 
-				<input class="" type="text" id="name" name="name" required> 
+				<input type="text" id="name" name="name" required> 
 			</p>
 			<p>
 				<label>Email</label><br> 
-				<input class="" type="text" id="email" name="email" required> 
+				<input type="text" id="email" name="email" required> 
 			</p><br><br>
-			<p class="">
-				<button type="submit" class="">수정하기</button>
+			<p class="update">
+				<button type="submit">수정하기</button>
 			</p>
 		</form>
 	</div>

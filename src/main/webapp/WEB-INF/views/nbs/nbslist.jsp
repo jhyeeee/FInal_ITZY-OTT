@@ -48,21 +48,21 @@
 	text-align: center;
 	vertical-align: middle!important;
 }
-body{
-display: flex, flex-direction: column;
-height: 100%;
-}
-.content{
-flex: 1;
-}
+main{	
+		width:1200px;
+		margin: 0 auto;
+		margin-bottom: 80px;
+	}
+
+
 </style>
 
 </head>
 <body bgcolor="#e9e9e9">
-
+<div class="content">
 <h1>공고게시판</h1>
 <hr>
-<div class="content">
+
 <div align="center">
 	<table class="table table-hover table-sm" style="width: 1000px">
 	<col width="70"><col width="80"><col width="300"><col width="70">
