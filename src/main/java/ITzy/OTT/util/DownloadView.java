@@ -13,12 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
-import ITzy.OTT.service.PdsSerivce;
+import ITzy.OTT.service.NbsService;
 
 public class DownloadView extends AbstractView{
 	
 	@Autowired
-	PdsSerivce service;
+	NbsService service;
 
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,

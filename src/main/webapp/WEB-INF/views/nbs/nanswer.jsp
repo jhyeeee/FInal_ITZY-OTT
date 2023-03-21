@@ -16,12 +16,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 	
 	<style type="text/css">
-	main{	
-		width:1200px;
-		margin: 0 auto;
-		margin-bottom: 80px;
-		overflow: hidden;
-	}
 	th{
 		background-color: #007bff;
 		color: white;
