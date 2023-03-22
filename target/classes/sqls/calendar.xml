@@ -49,7 +49,7 @@
 				seq, id, title, content, rdate, wdate
 			from calendar
 			where id=#{id} and substr(rdate, 1, 6) = #{yyyyMM}) a
-		where rnum between 1 and 5;
+		where rnum between 1 and 3;
 	</select>
 	<select id="calModal" parameterType="Integer" resultType="ITzy.OTT.dto.CalDto">
 		select seq, id, title, content, rdate, wdate

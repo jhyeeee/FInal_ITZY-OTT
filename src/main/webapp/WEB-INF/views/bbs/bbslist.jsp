@@ -192,7 +192,7 @@ for(int i = 0;i < pageBbs; i++){
 </div>
 
 <br>
-<a href="bbswrite.do">글쓰기</a>
+<!-- <a href="bbswrite.do">글쓰기</a> -->
 <button type="button" class="btn btn-secondary" onclick="bbsWrite()">글쓰기</button>
 </div>
 </div>
@@ -212,6 +212,10 @@ function enterKeyEvent() {
 	}
 }
 
+
+function bbsWrite() {
+	location.href = "bbswrite.do";
+}
 function searchBtn() {
 	let choice = document.getElementById('choice').value;
 	let search = document.getElementById('search').value;
@@ -253,6 +257,5 @@ $('#pagination').twbsPagination({
 
 </body>
 </html>
-
 
 
